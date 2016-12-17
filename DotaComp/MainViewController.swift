@@ -36,6 +36,8 @@ class MainViewController: UIViewController {
         static let sectionSoonTitle = "Upcoming Games"
         static let sectionDoneTitle = "Done Games"
         static let segueIdentifier = "toGame"
+        static let LiveGamesURL = "http://watcherd2.herokuapp.com/livegames"
+        static let UpCommingURL = "http://watcherd2.herokuapp.com/upcoming"
     }
     
     override func viewDidLoad() {
@@ -50,7 +52,7 @@ class MainViewController: UIViewController {
     }
     
     func loadUpcommingAndDoneGames(){
-        Alamofire.request("http://watcherd2.herokuapp.com/upcoming").validate().responseJSON { response in
+        Alamofire.request(Keys.UpCommingURL).validate().responseJSON { response in
             switch response.result {
             case .success:
                 guard let responseJSON = response.result.value as? [String: AnyObject] else {
@@ -70,7 +72,6 @@ class MainViewController: UIViewController {
                         $0.team2 != nil
                 }
                 
-                
                 self.tableView.reloadData()
             case .failure(let error):
                 self.showAlert(Alerts.RequestUpCommingGamesError, message: String(describing: error))
@@ -79,7 +80,7 @@ class MainViewController: UIViewController {
     }
     
     func loadLiveGames(){
-        Alamofire.request("http://watcherd2.herokuapp.com/livegames").validate().responseJSON { response in
+        Alamofire.request(Keys.LiveGamesURL).validate().responseJSON { response in
             switch response.result {
             case .success:
                 

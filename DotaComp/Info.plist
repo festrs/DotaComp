@@ -39,11 +39,12 @@
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>flags.cdn.gamesports.net</key>
-			<dict/>
-			<key>NSIncludesSubdomains</key>
-			<true/>
-			<key>NSExceptionAllowsInsecureHTTPLoads</key>
-			<true/>
+			<dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
 			<key>cdn.dota2.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
