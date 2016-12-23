@@ -1,5 +1,7 @@
 language: objective-c
 osx_image: xcode8
+before_install:
+  - sudo gem install xcpretty
 
-script: 
- - xcodebuild clean build -project DotaComp.xcodeproj -scheme DotaComp -sdk iphonesimulator
+script:
+  - xcodebuild -project DotaComp.xcodeproj -scheme 'DotaComp' -sdk iphonesimulator build | xcpretty -c && exit ${PIPESTATUS[0]}
