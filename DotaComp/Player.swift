@@ -12,11 +12,13 @@ class Player: Mappable {
     
     var accountId:Int?
     var heroId:Int?
+    
     //    0 - Radiant
     //    1 - Dire
     //    2 - Broadcaster
     //    4 - Unassigned
     var team:Int?
+    
     var name:String?
     var heroImageUrl:String?
     private static let baseURL = "http://cdn.dota2.com/apps/dota2/images/heroes/"
