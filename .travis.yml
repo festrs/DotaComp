@@ -1,4 +1,5 @@
 language: objective-c
 osx_image: xcode8
 
-script: xcodebuild clean build -project DotaComp.xcodeproj -scheme DotaComp -sdk iphonesimulator
+script: 
+ - xcodebuild clean build -project DotaComp.xcodeproj -scheme DotaComp -sdk iphonesimulator
