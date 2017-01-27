@@ -35,10 +35,6 @@ class GameViewController: UIViewController {
         }
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        loadHeroImages()
-    }
-    
 
     /*
     // MARK: - Navigation

@@ -4,7 +4,7 @@
 //
 //  Created by Wei Wang on 15/4/10.
 //
-//  Copyright (c) 2016 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -248,7 +248,7 @@ class ImageDownloaderTests: XCTestCase {
         }
         
         XCTAssertNotNil(task, "The task should exist.")
-        XCTAssertEqual(task!.ownerDownloader, downloader, "The owner downloader should be correct")
+        XCTAssertTrue(task!.ownerDownloader === downloader, "The owner downloader should be correct")
         XCTAssertEqual(task!.url, URL(string: "1234"), "The request URL should equal.")
     }
     
@@ -302,7 +302,7 @@ class ImageDownloaderTests: XCTestCase {
         let url = URL(string: URLString)!
         
         let p = RoundCornerImageProcessor(cornerRadius: 40)
-        let roundcornered = testImage.kf.image(withRoundRadius: 40, fit: testImage.kf.size, scale: 1)
+        let roundcornered = testImage.kf.image(withRoundRadius: 40, fit: testImage.kf.size)
         
         downloader.downloadImage(with: url, options: [.processor(p)], progressBlock: { (receivedSize, totalSize) -> () in
             
@@ -326,7 +326,7 @@ class ImageDownloaderTests: XCTestCase {
         let url = URL(string: URLString)!
         
         let p1 = RoundCornerImageProcessor(cornerRadius: 40)
-        let roundcornered = testImage.kf.image(withRoundRadius: 40, fit: testImage.kf.size, scale: 1)
+        let roundcornered = testImage.kf.image(withRoundRadius: 40, fit: testImage.kf.size)
 
         let p2 = BlurImageProcessor(blurRadius: 3.0)
         let blurred = testImage.kf.blurred(withRadius: 3.0)

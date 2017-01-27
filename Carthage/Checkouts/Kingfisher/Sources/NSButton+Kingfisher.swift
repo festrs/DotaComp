@@ -4,7 +4,7 @@
 //
 //  Created by Jie Zhang on 14/04/2016.
 //
-//  Copyright (c) 2016 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -53,11 +53,15 @@ extension Kingfisher where Base: NSButton {
                          progressBlock: DownloadProgressBlock? = nil,
                          completionHandler: CompletionHandler? = nil) -> RetrieveImageTask
     {
-        base.image = placeholder
-        
         guard let resource = resource else {
+            base.image = placeholder
             completionHandler?(nil, nil, .none, nil)
             return .empty
+        }
+        
+        let options = options ?? KingfisherEmptyOptionsInfo
+        if !options.keepCurrentImageWhileLoading {
+            base.image = placeholder
         }
         
         setWebURL(resource.downloadURL)
@@ -115,11 +119,15 @@ extension Kingfisher where Base: NSButton {
                                   progressBlock: DownloadProgressBlock? = nil,
                                   completionHandler: CompletionHandler? = nil) -> RetrieveImageTask
     {
-        base.alternateImage = placeholder
-        
         guard let resource = resource else {
+            base.alternateImage = placeholder
             completionHandler?(nil, nil, .none, nil)
             return .empty
+        }
+        
+        let options = options ?? KingfisherEmptyOptionsInfo
+        if !options.keepCurrentImageWhileLoading {
+            base.alternateImage = placeholder
         }
         
         setAlternateWebURL(resource.downloadURL)

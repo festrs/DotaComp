@@ -13,9 +13,14 @@ import ObjectMapper
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    var refreshControl: UIRefreshControl!
+    var refreshImageView: UIImageView!
     var liveGames:[Game] = []
     var soonGames:[EventSoon] = []
     var doneGames:[EventDone] = []
+    var eventManager = EventManager()
+    var lifeGamesRefreshed = false
+    var upCommingGamesRefreshed = false
     
     struct Alerts {
         static let DismissAlert = "Dismiss"
@@ -38,17 +43,62 @@ class MainViewController: UIViewController {
         static let segueIdentifier = "toGame"
         static let LiveGamesURL = "http://watcherd2.herokuapp.com/livegames"
         static let UpCommingURL = "http://watcherd2.herokuapp.com/upcoming"
+        static let gamesRefreshed = "gamesRefreshed"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
+        setStatusBarStyle(UIStatusBarStyle.default)
+        configEvents()
+        configRefreshControl()
         loadLiveGames()
         loadUpcommingAndDoneGames()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func configEvents() {
+        eventManager.listenTo(eventName: Keys.gamesRefreshed, action: {
+            if self.upCommingGamesRefreshed && self.lifeGamesRefreshed {
+                self.upCommingGamesRefreshed = false
+                self.lifeGamesRefreshed = false
+                self.stopRefreshing()
+            }
+        })
+    }
+    
+    func configRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl.backgroundColor = UIColor.clear
+        refreshControl.tintColor = UIColor.clear
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
+        
+        var images:[UIImage] = []
+        
+        for i in (0...15).reversed(){
+            images.append(UIImage(named: "\(i)")!)
+        }
+        refreshImageView = UIImageView(image: UIImage(named: "14"))
+        refreshImageView.backgroundColor = UIColor.white
+        refreshImageView.animationImages = images
+        refreshImageView.animationDuration = 2
+        
+        refreshControl.addSubview(refreshImageView)
+        
+        tableView.addSubview(refreshControl)
+    }
+    
+    func refresh(sender:AnyObject) {
+        loadLiveGames()
+        loadUpcommingAndDoneGames()
+    }
+    
+    func stopRefreshing(){
+        self.refreshImageView.stopAnimating()
+        self.refreshControl.endRefreshing()
     }
     
     func loadUpcommingAndDoneGames(){
@@ -71,9 +121,12 @@ class MainViewController: UIViewController {
                     $0.team1 != nil &&
                         $0.team2 != nil
                 }
-                
+                self.upCommingGamesRefreshed = true
+                self.eventManager.trigger(eventName: Keys.gamesRefreshed)
                 self.tableView.reloadData()
             case .failure(let error):
+                self.upCommingGamesRefreshed = true
+                self.eventManager.trigger(eventName: Keys.gamesRefreshed)
                 self.showAlert(Alerts.RequestUpCommingGamesError, message: String(describing: error))
             }
         }
@@ -96,8 +149,12 @@ class MainViewController: UIViewController {
                         $0.direTeam?.teamName != nil &&
                         $0.radiantTeam?.teamName != nil
                 }
+                self.lifeGamesRefreshed = true
+                self.eventManager.trigger(eventName: Keys.gamesRefreshed)
                 self.tableView.reloadData()
             case .failure(let error):
+                self.lifeGamesRefreshed = true
+                self.eventManager.trigger(eventName: Keys.gamesRefreshed)
                 self.showAlert(Alerts.RequestLiveGamesError, message: String(describing: error))
             }
         }
@@ -120,7 +177,49 @@ class MainViewController: UIViewController {
     
 }
 
-extension MainViewController: UITableViewDelegate  {
+extension MainViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // Get the current size of the refresh controller
+        var refreshBounds = self.refreshControl!.bounds;
+        
+        // Distance the table has been pulled >= 0
+        let pullDistance = max(0.0, -self.refreshControl!.frame.origin.y);
+        
+        // Half the width of the table
+        let midX = self.tableView.frame.size.width / 2.0;
+        
+        // Calculate the pull ratio, between 0.0-1.0
+        let pullRatio = min( max(pullDistance, 0.0), 100.0) / 100.0;
+        
+        // Calculate the width and height of our graphics
+        let imageViewHeight = self.refreshImageView.bounds.size.height;
+        let imageViewWidth = self.refreshImageView.bounds.size.width;
+        
+        // Set the Y coord of the graphics, based on pull distance
+        let imageViewY = pullDistance - ( imageViewHeight);
+        let imageViewX = midX - imageViewWidth / 2.0;
+        
+        // Set the graphic's frames
+        var imageViewFrame = self.refreshImageView.frame;
+        imageViewFrame.origin.x = imageViewX
+        imageViewFrame.origin.y = imageViewY;
+        
+        refreshImageView.frame = imageViewFrame;
+        
+        // Set the encompassing view's frames
+        refreshBounds.size.height = pullDistance;
+        
+        // If we're refreshing and the animation is not playing, then play the animation
+        if (refreshControl!.isRefreshing && !refreshImageView.isAnimating) {
+            refreshImageView.startAnimating()
+        }
+        
+        print("pullDistance \(pullDistance), pullRatio: \(pullRatio), midX: \(midX), refreshing: \(self.refreshControl!.isRefreshing)")
+    }
+}
+
+extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0{
