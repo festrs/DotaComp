@@ -1,7 +1,11 @@
 language: objective-c
 osx_image: xcode8.1
+
 before_install:
   - sudo gem install xcpretty
+  - brew update
+  - brew install carthage
+  - carthage update --platform ios
 
 script:
   - xcodebuild -project DotaComp.xcodeproj -scheme 'DotaComp' -sdk iphonesimulator build | xcpretty -c && exit ${PIPESTATUS[0]}

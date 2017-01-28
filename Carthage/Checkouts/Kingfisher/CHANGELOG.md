@@ -2,6 +2,83 @@
 
 -----
 
+## [3.3.2 - Upside Down](https://github.com/onevcat/Kingfisher/releases/tag/3.3.2) (2017-01-23)
+
+#### Fix
+* An issue which causes the background decoded images drawn upside down.
+
+---
+
+## [3.3.1 - Lunar Eve](https://github.com/onevcat/Kingfisher/releases/tag/3.3.1) (2017-01-21)
+
+#### Add
+* Expose default `pngRepresentation`, `jpegRepresentation` and `gifRepresentation` as public. [#560](https://github.com/onevcat/Kingfisher/pull/560)
+* Support unlimited disk cache duration. [#566](https://github.com/onevcat/Kingfisher/pull/566)
+
+#### Fix
+* A mismatch of CG image component when creating `CGContext` for blur filter. [#567](https://github.com/onevcat/Kingfisher/pull/567)
+* Remove test images from repo to keep slim. [#568](https://github.com/onevcat/Kingfisher/pull/568)
+
+---
+
+## [3.3.0 - Lunar Eve](https://github.com/onevcat/Kingfisher/releases/tag/3.3.0) (2017-01-21)
+
+#### Add
+* Expose default `pngRepresentation`, `jpegRepresentation` and `gifRepresentation` as public. [#560](https://github.com/onevcat/Kingfisher/pull/560)
+* Support unlimited disk cache duration. [#566](https://github.com/onevcat/Kingfisher/pull/566)
+
+#### Fix
+* A mismatch of CG image component when creating `CGContext` for blur filter. [#567](https://github.com/onevcat/Kingfisher/pull/567)
+* Remove test images from repo to keep slim. [#568](https://github.com/onevcat/Kingfisher/pull/568)
+
+---
+
+## [3.2.4 - Love SPM again](https://github.com/onevcat/Kingfisher/releases/tag/3.2.4) (2016-12-22)
+
+#### Fix
+* A problem that causes framework cannot be compiled by Swift Package Manager. [#547](https://github.com/onevcat/Kingfisher/issues/547)
+* Removed an unused parameter from round corner image API. [#548](https://github.com/onevcat/Kingfisher/issues/548)
+
+---
+
+## [3.2.3 - LI ZHENG](https://github.com/onevcat/Kingfisher/releases/tag/3.2.3) (2016-12-20)
+
+#### Fix
+* An issue which caused processed images igoring exif orientation information. [#535](https://github.com/onevcat/Kingfisher/issues/535)
+
+---
+
+## [3.2.2 - Faster GIF](https://github.com/onevcat/Kingfisher/releases/tag/3.2.2) (2016-12-02)
+
+#### Fix
+* Improve preload animated image loading strategy by using background queue. This should improve framerate when loading a lot of GIF files in the same time. [#529](https://github.com/onevcat/Kingfisher/pull/529)
+* Make `ImageDownloader` a pure Swift class to avoid the SDK bug which might leak memory in iOS 10. [#520](https://github.com/onevcat/Kingfisher/issues/520)
+* Fix some typos. [#523](https://github.com/onevcat/Kingfisher/issues/523)
+
+---
+
+## [3.2.1 - Helper Helps](https://github.com/onevcat/Kingfisher/releases/tag/3.2.1) (2016-11-14)
+
+#### Add
+* A new set of `KingfisherOptionsInfo` extension helpers to extract options easiser. It will be useful when you are trying to implement your own processors or serializers. [#505](https://github.com/onevcat/Kingfisher/issues/505)
+* Mark the empty task for downloader as `public`. [#508](https://github.com/onevcat/Kingfisher/issues/508)
+
+#### Fix
+* Set placeholder image even when the input resource is `nil`. This is a regression from version 3.2.0. [#510](https://github.com/onevcat/Kingfisher/issues/510)
+
+---
+
+## [3.2.0 - Quiet](https://github.com/onevcat/Kingfisher/releases/tag/3.2.0) (2016-11-07)
+
+#### Add
+* A new option to ignore placeholder and keep current image while loading/downloading a new one. This would be useful when you want to display the earlier image while loading a new one. [494](https://github.com/onevcat/Kingfisher/issues/494)
+* A disk cache path closure to let you fully customize the disk cache path. [#499](https://github.com/onevcat/Kingfisher/pull/499)
+
+#### Fix
+* Move methods which were marked as `open` to their class defination scope, to avoid the compiler restriction when overridden. [#500](https://github.com/onevcat/Kingfisher/pull/500)
+
+---
+
 ## [3.1.4 - CIImageProcessor with Data](https://github.com/onevcat/Kingfisher/releases/tag/3.1.4) (2016-10-19)
 
 #### Fix

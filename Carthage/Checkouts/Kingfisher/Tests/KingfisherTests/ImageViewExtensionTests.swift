@@ -4,7 +4,7 @@
 //
 //  Created by Wei Wang on 15/4/17.
 //
-//  Copyright (c) 2016 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -524,5 +524,20 @@ class ImageViewExtensionTests: XCTestCase {
         }
         
         waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testSettingImageWhileKeepingCurrentOne() {
+
+        let URLString = testKeys[0]
+        _ = stubRequest("GET", URLString).andReturn(200)?.withBody(testImageData)
+        let url = URL(string: URLString)!
+        
+        imageView.image = testImage
+        imageView.kf.setImage(with: url, placeholder: nil, options: nil)
+        XCTAssertNil(imageView.image)
+        
+        imageView.image = testImage
+        imageView.kf.setImage(with: url, placeholder: nil, options: [.keepCurrentImageWhileLoading])
+        XCTAssertEqual(testImage, imageView.image)
     }
 }

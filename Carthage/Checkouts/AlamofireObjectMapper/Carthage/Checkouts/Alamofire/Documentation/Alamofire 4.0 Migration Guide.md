@@ -24,8 +24,8 @@ This guide is provided in order to ease the transition of existing applications 
 
 ## Requirements
 
-- iOS and tvOS 9.0+, macOS 10.11.0+, watchOS 2.0+
-- Xcode 8.0+
+- iOS 8.0+, macOS 10.10.0+, tvOS 9.0+ and watchOS 2.0+
+- Xcode 8.1+
 - Swift 3.0+
 
 For those of you that would like to use Alamofire on iOS 8 or macOS 10.9, please use the latest tagged 3.x release which supports both Swift 2.2 and 2.3.
@@ -104,7 +104,7 @@ Alamofire.request(.GET, urlString, parameters: parameters, encoding: .JSON)
 let parameters: Parameters = ["foo": "bar"]
 
 Alamofire.request(urlString, method: .get, parameters: parameters, encoding: JSONEncoding.default)
-	.downloadProgress(queue: DispatchQueue.utility) { progress in
+	.downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
 		print("Progress: \(progress.fractionCompleted)")
 	}
 	.validate { request, response, data in
@@ -184,13 +184,13 @@ Alamofire.download(.GET, urlString, parameters: parameters, encoding: .JSON, to:
 
 // Alamofire 4
 let fileURL: URL
-let destination: Request.DownloadFileDestination = { _, _ in 
+let destination: DownloadRequest.DownloadFileDestination = { _, _ in 
 	return (fileURL, [.createIntermediateDirectories, .removePreviousFile]) 
 }
 let parameters: Parameters = ["foo": "bar"]
 
-Alamofire.download(urlString, method: .get, parameters: parameters, encoding: JSONEncoding.default)
-	.downloadProgress(queue: DispatchQueue.utility) { progress in
+Alamofire.download(urlString, method: .get, parameters: parameters, encoding: JSONEncoding.default, to: destination)
+	.downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
 		print("Progress: \(progress.fractionCompleted)")
 	}
 	.validate { request, response, temporaryURL, destinationURL in
@@ -254,7 +254,7 @@ Alamofire.upload(.PUT, urlString, file: fileURL)
 
 // Alamofire 4
 Alamofire.upload(fileURL, to: urlString, method: .put)
-	.uploadProgress(queue: DispatchQueue.utility) { progress in
+	.uploadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
 		print("Upload Progress: \(progress.fractionCompleted)")
 	}
 	.downloadProgress { progress in // called on main queue by default
@@ -441,7 +441,7 @@ It's important to note that these APIs are only available on iOS and tvOS 10+ an
 
 ```swift
 Alamofire.request(urlString).response { response in
-    if #available(iOS 10.0. *) {
+    if #available(iOS 10.0, *) {
 		debugPrint(response.metrics)
     }
 }
@@ -453,7 +453,7 @@ Alamofire.request(urlString).response { response in
 
 ## Updated Features
 
-Alamofire 4 contains many new features and enhancments on existing ones. This section is designed to give a brief overview of the features and demonstrate their uses. For more information on each each, please refer to the linked pull request.
+Alamofire 4 contains many new features and enhancements on existing ones. This section is designed to give a brief overview of the features and demonstrate their uses. For more information on each each, please refer to the linked pull request.
 
 ### Errors
 
@@ -652,7 +652,7 @@ Alamofire.request(urlString)
 
 ```swift
 Alamofire.download(urlString, to: destination)
-    .downloadProgress(queue: DispatchQueue.utility) { progress in
+    .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
         // Called on utility dispatch queue
         print("Download progress: \(progress.fractionCompleted)")
     }

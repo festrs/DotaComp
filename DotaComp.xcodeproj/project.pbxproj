@@ -14,6 +14,8 @@
 		3A610F831DB95A380047F3AC /* Faction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A610F821DB95A380047F3AC /* Faction.swift */; };
 		3A610F861DB95A560047F3AC /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A610F841DB95A560047F3AC /* Game.swift */; };
 		3A610F871DB95A560047F3AC /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A610F851DB95A560047F3AC /* Scoreboard.swift */; };
+		3ABD1BAC1E3BC5F7009142CA /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1BAB1E3BC5F7009142CA /* Events.swift */; };
+		3ABD1BAF1E3BFED6009142CA /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABD1BAE1E3BFED6009142CA /* Chameleon.framework */; };
 		3AE0204D1DBFB6B000E559B8 /* EventSoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE0204C1DBFB6B000E559B8 /* EventSoon.swift */; };
 		3AE0204F1DBFC2A000E559B8 /* EventDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE0204E1DBFC2A000E559B8 /* EventDone.swift */; };
 		3AE020511DC037DF00E559B8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE020501DC037DF00E559B8 /* GameViewController.swift */; };
@@ -34,6 +36,8 @@
 		3A610F821DB95A380047F3AC /* Faction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Faction.swift; sourceTree = "<group>"; };
 		3A610F841DB95A560047F3AC /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3A610F851DB95A560047F3AC /* Scoreboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
+		3ABD1BAB1E3BC5F7009142CA /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		3ABD1BAE1E3BFED6009142CA /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		3AE0204C1DBFB6B000E559B8 /* EventSoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSoon.swift; sourceTree = "<group>"; };
 		3AE0204E1DBFC2A000E559B8 /* EventDone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDone.swift; sourceTree = "<group>"; };
 		3AE020501DC037DF00E559B8 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABD1BAF1E3BFED6009142CA /* Chameleon.framework in Frameworks */,
 				3A610F7A1DB94BEE0047F3AC /* Alamofire.framework in Frameworks */,
 				3A610F7B1DB94BEE0047F3AC /* ObjectMapper.framework in Frameworks */,
 				3AE020551DC182F700E559B8 /* Kingfisher.framework in Frameworks */,
@@ -91,6 +96,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		3ABD1BAD1E3BC5FB009142CA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3ABD1BAB1E3BC5F7009142CA /* Events.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		3AE0204B1DB966B300E559B8 /* UpComingGames */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +133,7 @@
 		3AEBD7C81DB9353200345071 /* DotaComp */ = {
 			isa = PBXGroup;
 			children = (
+				3ABD1BAD1E3BC5FB009142CA /* Utilities */,
 				3AE0204B1DB966B300E559B8 /* UpComingGames */,
 				3A610F881DB95B480047F3AC /* LiveGame */,
 				3AEBD7C91DB9353200345071 /* AppDelegate.swift */,
@@ -136,6 +150,7 @@
 		3AEBD7DC1DB93A6000345071 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3ABD1BAE1E3BFED6009142CA /* Chameleon.framework */,
 				3AE020541DC182F700E559B8 /* Kingfisher.framework */,
 				3A610F781DB94BEE0047F3AC /* Alamofire.framework */,
 				3A610F791DB94BEE0047F3AC /* ObjectMapper.framework */,
@@ -176,8 +191,7 @@
 				TargetAttributes = {
 					3AEBD7C51DB9353200345071 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 439F5NHE7E;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -222,6 +236,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -237,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABD1BAC1E3BC5F7009142CA /* Events.swift in Sources */,
 				3A610F7F1DB94FFE0047F3AC /* Team.swift in Sources */,
 				3A610F861DB95A560047F3AC /* Game.swift in Sources */,
 				3AE0204F1DBFC2A000E559B8 /* EventDone.swift in Sources */,
@@ -368,7 +384,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 439F5NHE7E;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Felipe Dias Pereira (4ESLPZ55NB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Felipe Dias Pereira (4ESLPZ55NB)";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -377,6 +395,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = felipep.com.DotaComp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "felipep.com.DotaComp Development";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -385,7 +405,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 439F5NHE7E;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Felipe Pereira (439F5NHE7E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Felipe Pereira (439F5NHE7E)";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -394,6 +416,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = felipep.com.DotaComp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "felipep.com.DotaComp AppStore";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
