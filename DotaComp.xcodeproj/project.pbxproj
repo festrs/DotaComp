@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A2C3C041DC26A23008EE5A9 /* EventSoonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C3C031DC26A23008EE5A9 /* EventSoonTableViewCell.swift */; };
+		3A2DE15C1E3F7C3200252288 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DE15B1E3F7C3200252288 /* GradientView.swift */; };
 		3A610F7A1DB94BEE0047F3AC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A610F781DB94BEE0047F3AC /* Alamofire.framework */; };
 		3A610F7B1DB94BEE0047F3AC /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A610F791DB94BEE0047F3AC /* ObjectMapper.framework */; };
 		3A610F7F1DB94FFE0047F3AC /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A610F7E1DB94FFE0047F3AC /* Team.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		3A2C3C031DC26A23008EE5A9 /* EventSoonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSoonTableViewCell.swift; sourceTree = "<group>"; };
+		3A2DE15B1E3F7C3200252288 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		3A610F781DB94BEE0047F3AC /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		3A610F791DB94BEE0047F3AC /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		3A610F7E1DB94FFE0047F3AC /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		3ABD1BAD1E3BC5FB009142CA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				3A2DE15B1E3F7C3200252288 /* GradientView.swift */,
 				3ABD1BAB1E3BC5F7009142CA /* Events.swift */,
 			);
 			name = Utilities;
@@ -262,6 +265,7 @@
 				3A610F831DB95A380047F3AC /* Faction.swift in Sources */,
 				3AEBD7CA1DB9353200345071 /* AppDelegate.swift in Sources */,
 				3AE020531DC1749400E559B8 /* Player.swift in Sources */,
+				3A2DE15C1E3F7C3200252288 /* GradientView.swift in Sources */,
 				3AE0204D1DBFB6B000E559B8 /* EventSoon.swift in Sources */,
 				3A2C3C041DC26A23008EE5A9 /* EventSoonTableViewCell.swift in Sources */,
 			);

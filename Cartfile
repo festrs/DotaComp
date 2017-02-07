@@ -1,4 +1,4 @@
 github "Alamofire/Alamofire" ~> 4.0
 github "tristanhimmelman/AlamofireObjectMapper" ~> 4.0
 github "onevcat/Kingfisher" ~> 3.0
-github "ViccAlexander/Chameleon"
+github "ViccAlexander/Chameleon" ~> 2.2.0

@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import ObjectMapper
+import Chameleon
 
 class MainViewController: UIViewController {
     
@@ -49,7 +50,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
-        setStatusBarStyle(UIStatusBarStyle.default)
         configEvents()
         configRefreshControl()
         loadLiveGames()
@@ -82,7 +82,7 @@ class MainViewController: UIViewController {
             images.append(UIImage(named: "\(i)")!)
         }
         refreshImageView = UIImageView(image: UIImage(named: "14"))
-        refreshImageView.backgroundColor = UIColor.white
+        refreshImageView.backgroundColor = UIColor.clear
         refreshImageView.animationImages = images
         refreshImageView.animationDuration = 2
         

@@ -1,4 +1,4 @@
-#**DotaComp**  [![codebeat badge](https://codebeat.co/badges/6099aa86-3436-4819-a5c1-a1bfa3e73054)](https://codebeat.co/projects/github-com-festrs-dotacomp) [![Build Status](https://travis-ci.org/festrs/DotaComp.svg?branch=Develop)](https://travis-ci.org/festrs/DotaComp)
+#**DotaComp**  [![codebeat badge](https://codebeat.co/badges/6099aa86-3436-4819-a5c1-a1bfa3e73054)](https://codebeat.co/projects/github-com-festrs-dotacomp) [[![Build Status](https://travis-ci.org/festrs/DotaComp.svg?branch=master)](https://travis-ci.org/festrs/DotaComp)
 
 # Body
 

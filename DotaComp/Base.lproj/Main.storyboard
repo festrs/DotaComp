@@ -36,7 +36,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Ef-ds-MvI">
                                                     <rect key="frame" x="15" y="0.0" width="353" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -47,7 +47,7 @@
                                         <rect key="frame" x="0.0" y="72" width="383" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kgB-e1-LGh" id="kDx-2h-xtV">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="119"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZY-A4-qgH">
@@ -148,7 +148,7 @@
             </objects>
             <point key="canvasLocation" x="1037.5999999999999" y="123.68815592203899"/>
         </scene>
-        <!--Game View Controller-->
+        <!--Title-->
         <scene sceneID="zz7-2d-ivt">
             <objects>
                 <viewController id="Y85-Fq-Gto" customClass="GameViewController" customModule="DotaComp" customModuleProvider="target" sceneMemberID="viewController">
@@ -166,13 +166,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="SSp-cQ-xoP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="137.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="wkM-RY-ABr" userLabel="Player1Rad">
+                                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="wkM-RY-ABr" userLabel="Player1Rad" customClass="GradientView" customModule="DotaComp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="123.5" height="137.5"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="kMG-vL-wCd" userLabel="Player2Rad">
+                                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="kMG-vL-wCd" userLabel="Player2Rad" customClass="GradientView" customModule="DotaComp" customModuleProvider="target">
                                                 <rect key="frame" x="125.5" y="0.0" width="124" height="137.5"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-i7-0pW" userLabel="Player3Rad">
+                                            <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-i7-0pW" userLabel="Player3Rad" customClass="GradientView" customModule="DotaComp" customModuleProvider="target">
                                                 <rect key="frame" x="251.5" y="0.0" width="123.5" height="137.5"/>
                                             </imageView>
                                         </subviews>
@@ -181,10 +181,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="4SJ-Tw-50d">
                                         <rect key="frame" x="0.0" y="139.5" width="375" height="137"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="y0y-Qs-Iyz" userLabel="Player4Rad">
+                                            <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="y0y-Qs-Iyz" userLabel="Player4Rad" customClass="GradientView" customModule="DotaComp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="186.5" height="137"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="TnI-J9-IlB" userLabel="Player5Rad">
+                                            <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="TnI-J9-IlB" userLabel="Player5Rad" customClass="GradientView" customModule="DotaComp" customModuleProvider="target">
                                                 <rect key="frame" x="188.5" y="0.0" width="186.5" height="137"/>
                                             </imageView>
                                         </subviews>
@@ -199,10 +199,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="atM-YO-nNB">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="137.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="QR6-ab-Nbj" userLabel="Player1Dire">
+                                            <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="QR6-ab-Nbj" userLabel="Player1Dire" customClass="GradientView" customModule="DotaComp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="186.5" height="137.5"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="LV4-b4-VIZ" userLabel="Player2Dire">
+                                            <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="LV4-b4-VIZ" userLabel="Player2Dire" customClass="GradientView" customModule="DotaComp" customModuleProvider="target">
                                                 <rect key="frame" x="188.5" y="0.0" width="186.5" height="137.5"/>
                                             </imageView>
                                         </subviews>
@@ -211,13 +211,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="vFU-IO-bIR">
                                         <rect key="frame" x="0.0" y="139.5" width="375" height="137"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="eV6-iO-ifV" userLabel="Player3Dire">
+                                            <imageView userInteractionEnabled="NO" tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="eV6-iO-ifV" userLabel="Player3Dire" customClass="GradientView" customModule="DotaComp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="123.5" height="137"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="PoO-rF-Hz7" userLabel="Player4Dire">
+                                            <imageView userInteractionEnabled="NO" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="PoO-rF-Hz7" userLabel="Player4Dire" customClass="GradientView" customModule="DotaComp" customModuleProvider="target">
                                                 <rect key="frame" x="125.5" y="0.0" width="124" height="137"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="Gl2-mg-PE8" userLabel="Player5Dire">
+                                            <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="Gl2-mg-PE8" userLabel="Player5Dire" customClass="GradientView" customModule="DotaComp" customModuleProvider="target">
                                                 <rect key="frame" x="251.5" y="0.0" width="123.5" height="137"/>
                                             </imageView>
                                         </subviews>
@@ -226,6 +226,13 @@
                                 </subviews>
                                 <variation key="heightClass=compact-widthClass=compact" axis="horizontal"/>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4 x 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cE4-fx-1iP">
+                                <rect key="frame" x="166" y="361" width="39" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
@@ -256,8 +263,6 @@
                                 <exclude reference="f45-NE-8GD"/>
                                 <exclude reference="iWu-9K-IVS"/>
                                 <exclude reference="nG6-n0-AOP"/>
-                                <exclude reference="Jia-Na-wo6"/>
-                                <exclude reference="ZH0-rK-hf6"/>
                                 <exclude reference="4f6-Ed-Lr7"/>
                                 <exclude reference="9Ow-19-dfI"/>
                                 <exclude reference="CxF-D6-6c3"/>
@@ -268,18 +273,20 @@
                                 <exclude reference="tLC-v1-YX3"/>
                                 <exclude reference="uAD-Qt-slz"/>
                                 <exclude reference="uH0-aI-ls3"/>
+                                <exclude reference="Jia-Na-wo6"/>
+                                <exclude reference="ZH0-rK-hf6"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="iWu-9K-IVS"/>
                                 <include reference="nG6-n0-AOP"/>
-                                <include reference="Jia-Na-wo6"/>
                                 <include reference="9Ow-19-dfI"/>
                                 <include reference="OaQ-WK-R8W"/>
                                 <include reference="coS-PX-IE3"/>
                                 <include reference="tLC-v1-YX3"/>
                                 <include reference="uAD-Qt-slz"/>
+                                <include reference="Jia-Na-wo6"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -288,15 +295,21 @@
                                 <include reference="Xco-Ch-bZh"/>
                                 <include reference="YsM-E4-dqe"/>
                                 <include reference="f45-NE-8GD"/>
-                                <include reference="ZH0-rK-hf6"/>
                                 <include reference="4f6-Ed-Lr7"/>
                                 <include reference="CxF-D6-6c3"/>
                                 <include reference="MHo-4J-r36"/>
                                 <include reference="P9N-NI-quv"/>
                                 <include reference="uH0-aI-ls3"/>
+                                <include reference="ZH0-rK-hf6"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="24c-dt-QKq">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="u7v-vi-dab"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="clockBarButton" destination="u7v-vi-dab" id="RGy-rm-rTF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adh-fs-WnA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
