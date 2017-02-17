@@ -139,7 +139,7 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Keys.segueIdentifier{
             if let indexPath = sender as? IndexPath,
-                let vc = segue.destination as? GameViewController{
+                let vc = segue.destination as? NewGameViewController{
                 vc.game = dataDownloader.liveGames[indexPath.row]
             }
         }

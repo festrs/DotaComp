@@ -24,7 +24,6 @@
 		3ABD1BAF1E3BFED6009142CA /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABD1BAE1E3BFED6009142CA /* Chameleon.framework */; };
 		3AE0204D1DBFB6B000E559B8 /* EventSoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE0204C1DBFB6B000E559B8 /* EventSoon.swift */; };
 		3AE0204F1DBFC2A000E559B8 /* EventDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE0204E1DBFC2A000E559B8 /* EventDone.swift */; };
-		3AE020511DC037DF00E559B8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE020501DC037DF00E559B8 /* GameViewController.swift */; };
 		3AE020531DC1749400E559B8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE020521DC1749400E559B8 /* Player.swift */; };
 		3AE020551DC182F700E559B8 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE020541DC182F700E559B8 /* Kingfisher.framework */; };
 		3AEBD7CA1DB9353200345071 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEBD7C91DB9353200345071 /* AppDelegate.swift */; };
@@ -64,7 +63,6 @@
 		3ABD1BAE1E3BFED6009142CA /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		3AE0204C1DBFB6B000E559B8 /* EventSoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSoon.swift; sourceTree = "<group>"; };
 		3AE0204E1DBFC2A000E559B8 /* EventDone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDone.swift; sourceTree = "<group>"; };
-		3AE020501DC037DF00E559B8 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		3AE020521DC1749400E559B8 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3AE020541DC182F700E559B8 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		3AEBD7C61DB9353200345071 /* DotaComp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DotaComp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +173,6 @@
 			children = (
 				3AA1C1C71E54B48D006AD293 /* NewGameViewController.swift */,
 				3AA1C1C51E54B307006AD293 /* GameFoldingTableViewCell.swift */,
-				3AE020501DC037DF00E559B8 /* GameViewController.swift */,
 			);
 			name = GameView;
 			sourceTree = "<group>";
@@ -347,7 +344,6 @@
 				3A610F861DB95A560047F3AC /* Game.swift in Sources */,
 				3AE0204F1DBFC2A000E559B8 /* EventDone.swift in Sources */,
 				3AEBD7CC1DB9353200345071 /* MainViewController.swift in Sources */,
-				3AE020511DC037DF00E559B8 /* GameViewController.swift in Sources */,
 				3AA1C1B31E548FF3006AD293 /* FactionPlayer.swift in Sources */,
 				3A41F15B1E527710009F99FF /* DataDownloader.swift in Sources */,
 				3A610F871DB95A560047F3AC /* Scoreboard.swift in Sources */,
