@@ -1,5 +1,5 @@
 github "Alamofire/Alamofire" "4.3.0"
+github "duemunk/Async" "2.0.1"
 github "ViccAlexander/Chameleon" "2.2.0"
-github "onevcat/Kingfisher" "3.3.2"
-github "Hearst-DD/ObjectMapper" "2.2.2"
-github "tristanhimmelman/AlamofireObjectMapper" "4.0.1"
+github "onevcat/Kingfisher" "3.4.0"
+github "Ramotion/folding-cell" "2.0.3"

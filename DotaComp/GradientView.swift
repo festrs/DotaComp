@@ -19,7 +19,6 @@ class GradientView: UIImageView {
     
     override init(image: UIImage?) {
         super.init(image: image)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -11,63 +11,72 @@ import Alamofire
 import ObjectMapper
 import Chameleon
 
+
+extension UIView
+{
+    func addBlurEffect()
+    {
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.bounds
+        
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+        self.addSubview(blurEffectView)
+    }
+}
+
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
     var refreshImageView: UIImageView!
-    var liveGames:[Game] = []
-    var soonGames:[EventSoon] = []
-    var doneGames:[EventDone] = []
-    var eventManager = EventManager()
-    var lifeGamesRefreshed = false
-    var upCommingGamesRefreshed = false
+    var dataDownloader = DataDownloader()
+    var activityIndicatorView: UIActivityIndicatorView!
     
     struct Alerts {
         static let DismissAlert = "Dismiss"
-        static let RequestUpCommingGamesError = "Error while requesting up coming games."
-        static let RequestLiveGamesError = "Error while requesting live games."
-        static let JSONParseError = "Error parsing JSON request."
+        static let DataDownloaderError = "Error while data downloading."
     }
     
     struct Keys {
-        static let Result = "result"
-        static let Games = "games"
         static let NumberOfSections = 3
-        static let liveGameCellIdentifier = "LiveGameCell"
+        static let MainCellHeight = 70
+        static let MainCellIdentifier = "MainCell"
         static let eventSoonCellIdentifier = "EventSoonCell"
-        static let UpcomingGames = "eventSoon"
-        static let DoneGames = "eventDone"
         static let sectionLiveTitle = "Live Games"
         static let sectionSoonTitle = "Upcoming Games"
         static let sectionDoneTitle = "Done Games"
         static let segueIdentifier = "toGame"
-        static let LiveGamesURL = "http://watcherd2.herokuapp.com/livegames"
-        static let UpCommingURL = "http://watcherd2.herokuapp.com/upcoming"
-        static let gamesRefreshed = "gamesRefreshed"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
-        configEvents()
+        title = "Games"
         configRefreshControl()
-        loadLiveGames()
-        loadUpcommingAndDoneGames()
+        reloadData()
+        
+        activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        tableView.backgroundView = activityIndicatorView
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if dataDownloader.liveGames.count == 0 &&
+            dataDownloader.soonGames.count == 0 &&
+            dataDownloader.doneGames.count == 0 {
+            tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+            activityIndicatorView.startAnimating()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    func configEvents() {
-        eventManager.listenTo(eventName: Keys.gamesRefreshed, action: {
-            if self.upCommingGamesRefreshed && self.lifeGamesRefreshed {
-                self.upCommingGamesRefreshed = false
-                self.lifeGamesRefreshed = false
-                self.stopRefreshing()
-            }
-        })
     }
     
     func configRefreshControl() {
@@ -92,72 +101,33 @@ class MainViewController: UIViewController {
     }
     
     func refresh(sender:AnyObject) {
-        loadLiveGames()
-        loadUpcommingAndDoneGames()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+            guard let refresher = sender as? UIRefreshControl else {
+                return
+            }
+            if(refresher.isRefreshing){
+                self.reloadData()
+            }
+        })
+    }
+    
+    func reloadData(){
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.dataDownloader.updateData(){
+            error in
+            if error != nil {
+                self.showAlert(Alerts.DataDownloaderError, message: String(describing: error))
+            }
+            self.stopRefreshing()
+        }
     }
     
     func stopRefreshing(){
-        self.refreshImageView.stopAnimating()
-        self.refreshControl.endRefreshing()
-    }
-    
-    func loadUpcommingAndDoneGames(){
-        Alamofire.request(Keys.UpCommingURL).validate().responseJSON { response in
-            switch response.result {
-            case .success:
-                guard let responseJSON = response.result.value as? [String: AnyObject] else {
-                    self.showAlert(Alerts.JSONParseError, message: String(describing: Alerts.JSONParseError))
-                    return
-                }
-                let eventSoon = responseJSON[Keys.UpcomingGames] as! [[String : Any]]
-                self.soonGames = Mapper<EventSoon>().mapArray(JSONArray: eventSoon)!.filter {
-                    $0.team1 != nil &&
-                        $0.team2 != nil
-                }
-                
-                let eventDone = responseJSON[Keys.DoneGames] as! [[String : Any]]
-                
-                self.doneGames = Mapper<EventDone>().mapArray(JSONArray: eventDone)!.filter {
-                    $0.team1 != nil &&
-                        $0.team2 != nil
-                }
-                self.upCommingGamesRefreshed = true
-                self.eventManager.trigger(eventName: Keys.gamesRefreshed)
-                self.tableView.reloadData()
-            case .failure(let error):
-                self.upCommingGamesRefreshed = true
-                self.eventManager.trigger(eventName: Keys.gamesRefreshed)
-                self.showAlert(Alerts.RequestUpCommingGamesError, message: String(describing: error))
-            }
-        }
-    }
-    
-    func loadLiveGames(){
-        Alamofire.request(Keys.LiveGamesURL).validate().responseJSON { response in
-            switch response.result {
-            case .success:
-                
-                guard let responseJSON = response.result.value as? [String: AnyObject] else {
-                    self.showAlert(Alerts.JSONParseError, message: String(describing: Alerts.JSONParseError))
-                    return
-                }
-                
-                let array = responseJSON[Keys.Result]!
-                let games = array[Keys.Games] as! [[String : Any]]
-                
-                self.liveGames = Mapper<Game>().mapArray(JSONArray: games)!.filter {
-                        $0.direTeam?.teamName != nil &&
-                        $0.radiantTeam?.teamName != nil
-                }
-                self.lifeGamesRefreshed = true
-                self.eventManager.trigger(eventName: Keys.gamesRefreshed)
-                self.tableView.reloadData()
-            case .failure(let error):
-                self.lifeGamesRefreshed = true
-                self.eventManager.trigger(eventName: Keys.gamesRefreshed)
-                self.showAlert(Alerts.RequestLiveGamesError, message: String(describing: error))
-            }
-        }
+        tableView.reloadData();
+        refreshImageView.stopAnimating()
+        refreshControl.endRefreshing()
+        activityIndicatorView.stopAnimating()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
     func showAlert(_ title: String, message: String) {
@@ -170,7 +140,7 @@ class MainViewController: UIViewController {
         if segue.identifier == Keys.segueIdentifier{
             if let indexPath = sender as? IndexPath,
                 let vc = segue.destination as? GameViewController{
-                vc.game = liveGames[indexPath.row]
+                vc.game = dataDownloader.liveGames[indexPath.row]
             }
         }
     }
@@ -190,7 +160,7 @@ extension MainViewController: UIScrollViewDelegate {
         let midX = self.tableView.frame.size.width / 2.0;
         
         // Calculate the pull ratio, between 0.0-1.0
-        let pullRatio = min( max(pullDistance, 0.0), 100.0) / 100.0;
+        //let pullRatio = min( max(pullDistance, 0.0), 100.0) / 100.0;
         
         // Calculate the width and height of our graphics
         let imageViewHeight = self.refreshImageView.bounds.size.height;
@@ -215,7 +185,7 @@ extension MainViewController: UIScrollViewDelegate {
             refreshImageView.startAnimating()
         }
         
-        print("pullDistance \(pullDistance), pullRatio: \(pullRatio), midX: \(midX), refreshing: \(self.refreshControl!.isRefreshing)")
+        //print("pullDistance \(pullDistance), pullRatio: \(pullRatio), midX: \(midX), refreshing: \(self.refreshControl!.isRefreshing)")
     }
 }
 
@@ -224,6 +194,14 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0{
             self.performSegue(withIdentifier: Keys.segueIdentifier, sender: indexPath)
+        } else if indexPath.section == 1{
+            let upComingGame = dataDownloader.soonGames[indexPath.row]
+            if let url = URL(string: upComingGame.linkID!) {
+                UIApplication.shared.open(url, options: [:]) {
+                    boolean in
+    
+                }
+            }
         }
     }
 }
@@ -232,16 +210,7 @@ extension MainViewController: UITableViewDataSource  {
     
     @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        switch indexPath.section {
-        case 0:
-            return 44
-        case 1:
-            return 120
-        case 2:
-            return 44
-        default:
-            return 0
-        }
+        return CGFloat(Keys.MainCellHeight)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -260,11 +229,11 @@ extension MainViewController: UITableViewDataSource  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return liveGames.count
+            return dataDownloader.liveGames.count
         case 1:
-            return soonGames.count
+            return dataDownloader.soonGames.count
         case 2:
-            return doneGames.count
+            return dataDownloader.doneGames.count
         default:
             return 0
         }
@@ -278,44 +247,27 @@ extension MainViewController: UITableViewDataSource  {
         
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.liveGameCellIdentifier, for: indexPath)
-            let game = liveGames[indexPath.row]
-            
-            let direTeam = game.direTeam?.teamName.map({ $0 }) ?? ""
-            let radiantTeam = game.radiantTeam?.teamName.map({ $0 }) ?? ""
-            
-            cell.textLabel?.text = "Game: \(direTeam) vs \(radiantTeam)"
+            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.MainCellIdentifier, for: indexPath) as! MainViewTableViewCell
+            let game = dataDownloader.liveGames[indexPath.row]
+            cell.setUpCellForLiveGame(liveGame: game)
             return cell
-    
+            
         case 1:
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.eventSoonCellIdentifier, for: indexPath) as! EventSoonTableViewCell
-            let eventSoon = soonGames[indexPath.row]
-            
-            let direTeam = eventSoon.team1.map({ $0 }) ?? ""
-            let radiantTeam = eventSoon.team2.map({ $0 }) ?? ""
-            
-            cell.team1Label.text = radiantTeam
-            cell.team2Label.text = direTeam
-            cell.timeLabel.text = eventSoon.fullDate
-            cell.bestOfLabel.text = "Best of \(eventSoon.bestof)"
-            
+            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.MainCellIdentifier, for: indexPath) as! MainViewTableViewCell
+            let eventSoon = dataDownloader.soonGames[indexPath.row]
+            cell.setUpCellForUpComingGame(upComingGame: eventSoon)
             return cell
-
+            
         case 2:
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.liveGameCellIdentifier, for: indexPath)
-            let game = doneGames[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.MainCellIdentifier, for: indexPath)
+            let eventDone = dataDownloader.doneGames[indexPath.row]
             
-            let direTeam = game.team1.map({ $0 }) ?? ""
-            let radiantTeam = game.team2.map({ $0 }) ?? ""
-            
-            cell.textLabel?.text = "Game: \(direTeam) vs \(radiantTeam)"
             return cell
             
-
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.liveGameCellIdentifier, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.MainCellIdentifier, for: indexPath)
             return cell
         }
     }

@@ -56,7 +56,7 @@
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
-			<key>watcherd2.herokuapp.com</key>
+			<key>dotacomp-service.herokuapp.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>

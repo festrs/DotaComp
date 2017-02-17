@@ -18,13 +18,11 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "\((game.direTeam?.teamName)!) x \((game.radiantTeam?.teamName)!)"
+        let direTeamTag = game.direTeam?.tag ?? game.direTeam?.teamName
+        let radiantTeamTag = game.radiantTeam?.tag ?? game.radiantTeam?.teamName
         
+        title = "\(radiantTeamTag!) x \(direTeamTag!)"
         
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in 
-            self.clockBarButton.title = "\(((self.game.scoreboard?.duration)!/60))"
-            
-        })
         loadHeroImages()
     }
 
@@ -33,16 +31,25 @@ class GameViewController: UIViewController {
     }
     
     func loadHeroImages(){
-        let players = game.players?.filter {$0.team! <= 1}
-        var tag = 1
-        for player in players!{
-            if let imageView = self.view.viewWithTag(tag) as? UIImageView{
+        let radiantPlayers = game.players?.filter {$0.team! == 0}
+        let direPlayers = game.players?.filter {$0.team! == 1}
+        
+        for (index, player) in (radiantPlayers?.enumerated())! {
+            if let imageView = self.view.viewWithTag(index+1) as? UIImageView{
                 let url = URL(string: player.heroImageUrl!)
                 imageView.kf.setImage(with: url, placeholder: UIImage(named: "Placeholder"))
                 addLabel(imageView: imageView, player: player)
             }
-            tag = tag + 1
         }
+        
+        for (index, player) in (direPlayers?.enumerated())! {
+            if let imageView = self.view.viewWithTag(index+6) as? UIImageView{
+                let url = URL(string: player.heroImageUrl!)
+                imageView.kf.setImage(with: url, placeholder: UIImage(named: "Placeholder"))
+                addLabel(imageView: imageView, player: player)
+            }
+        }
+
     }
     
     func addLabel(imageView:UIImageView, player:Player){
@@ -60,16 +67,6 @@ class GameViewController: UIViewController {
         label.trailingAnchor.constraint(equalTo: superView.trailingAnchor, constant: 0).isActive = true
         label.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: 0).isActive = true
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
