@@ -14,12 +14,12 @@ class MainViewTableViewCell: UITableViewCell {
     @IBOutlet weak var team2Label: UILabel!
     @IBOutlet weak var bestOfLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var tournamentLabel: UILabel!
+    @IBOutlet weak var backView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        bestOfLabel.layer.cornerRadius = 5
-        bestOfLabel.layer.masksToBounds = true
+        backView.layer.cornerRadius = 8
+        backView.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,8 +32,14 @@ class MainViewTableViewCell: UITableViewCell {
         
         team1Label.text = radiantTeam
         team2Label.text = direTeam
-        bestOfLabel.backgroundColor = UIColor.flatRed()
-        tournamentLabel.text = liveGame.tournamentName!
+        bestOfLabel.isHidden = true
+        
+        timeLabel.isHidden = false
+        timeLabel.text = "LIVE"
+        timeLabel.layer.cornerRadius = 2
+        timeLabel.layer.masksToBounds = true
+        timeLabel.backgroundColor = UIColor.flatForestGreen()
+        timeLabel.textColor = UIColor.white
     }
     
     func setUpCellForUpComingGame(upComingGame: EventSoon){
@@ -41,13 +47,29 @@ class MainViewTableViewCell: UITableViewCell {
         let radiantTeam = upComingGame.team2.map({ $0 }) ?? ""
         team1Label.text = radiantTeam
         team2Label.text = direTeam
-        timeLabel.text = upComingGame.liveIn!
+        
+        timeLabel.isHidden = false
+        timeLabel.text = "Live in \(upComingGame.liveIn!)"
+        timeLabel.layer.cornerRadius = 0
+        timeLabel.layer.masksToBounds = false
+        timeLabel.backgroundColor = UIColor.clear
+        
         bestOfLabel.text = "Best of \(upComingGame.bestof!)"
-        bestOfLabel.backgroundColor = UIColor.flatRed()
+        bestOfLabel.isHidden = false
     }
     
-    func setUpCellForEndedGame(){
+    func setUpCellForEndedGame(endedGame: EventDone){
+        let direTeam = endedGame.team1.map({ $0 }) ?? ""
+        let radiantTeam = endedGame.team2.map({ $0 }) ?? ""
+        team1Label.text = radiantTeam
+        team2Label.text = direTeam
         
+        timeLabel.isHidden = true
+
+        bestOfLabel.text = "Best of \(endedGame.bestof!)"
+        bestOfLabel.isHidden = false
+        
+        self.selectionStyle = .none
     }
 
 }

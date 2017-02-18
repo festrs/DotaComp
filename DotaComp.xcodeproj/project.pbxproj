@@ -17,9 +17,16 @@
 		3A610F861DB95A560047F3AC /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A610F841DB95A560047F3AC /* Game.swift */; };
 		3A610F871DB95A560047F3AC /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A610F851DB95A560047F3AC /* Scoreboard.swift */; };
 		3AA1C1B31E548FF3006AD293 /* FactionPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C1B21E548FF3006AD293 /* FactionPlayer.swift */; };
-		3AA1C1C31E54B25F006AD293 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C1C21E54B25F006AD293 /* FoldingCell.swift */; };
-		3AA1C1C61E54B307006AD293 /* GameFoldingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C1C51E54B307006AD293 /* GameFoldingTableViewCell.swift */; };
-		3AA1C1C81E54B48D006AD293 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C1C71E54B48D006AD293 /* NewGameViewController.swift */; };
+		3AA42C1E1E57C32F003BA1EF /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1B51E54AEF7006AD293 /* OpenSans-Bold.ttf */; };
+		3AA42C1F1E57C32F003BA1EF /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1B61E54AEF7006AD293 /* OpenSans-BoldItalic.ttf */; };
+		3AA42C201E57C32F003BA1EF /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1B71E54AEF7006AD293 /* OpenSans-ExtraBold.ttf */; };
+		3AA42C211E57C32F003BA1EF /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1B81E54AEF7006AD293 /* OpenSans-ExtraBoldItalic.ttf */; };
+		3AA42C221E57C32F003BA1EF /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1B91E54AEF7006AD293 /* OpenSans-Italic.ttf */; };
+		3AA42C231E57C32F003BA1EF /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1BA1E54AEF7006AD293 /* OpenSans-Light.ttf */; };
+		3AA42C241E57C32F003BA1EF /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1BB1E54AEF7006AD293 /* OpenSans-LightItalic.ttf */; };
+		3AA42C251E57C32F003BA1EF /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1BC1E54AEF7006AD293 /* OpenSans-Regular.ttf */; };
+		3AA42C261E57C32F003BA1EF /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1BD1E54AEF7006AD293 /* OpenSans-Semibold.ttf */; };
+		3AA42C271E57C32F003BA1EF /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1BE1E54AEF7006AD293 /* OpenSans-SemiboldItalic.ttf */; };
 		3ABD1BAC1E3BC5F7009142CA /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1BAB1E3BC5F7009142CA /* Events.swift */; };
 		3ABD1BAF1E3BFED6009142CA /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABD1BAE1E3BFED6009142CA /* Chameleon.framework */; };
 		3AE0204D1DBFB6B000E559B8 /* EventSoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE0204C1DBFB6B000E559B8 /* EventSoon.swift */; };
@@ -57,9 +64,6 @@
 		3AA1C1BD1E54AEF7006AD293 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		3AA1C1BE1E54AEF7006AD293 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		3AA1C1BF1E54B062006AD293 /* FoldingCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FoldingCell.framework; path = Carthage/Build/iOS/FoldingCell.framework; sourceTree = "<group>"; };
-		3AA1C1C21E54B25F006AD293 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
-		3AA1C1C51E54B307006AD293 /* GameFoldingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameFoldingTableViewCell.swift; sourceTree = "<group>"; };
-		3AA1C1C71E54B48D006AD293 /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
 		3ABD1BAB1E3BC5F7009142CA /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		3ABD1BAE1E3BFED6009142CA /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		3AE0204C1DBFB6B000E559B8 /* EventSoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSoon.swift; sourceTree = "<group>"; };
@@ -153,14 +157,6 @@
 			name = Font;
 			sourceTree = "<group>";
 		};
-		3AA1C1C41E54B262006AD293 /* FoldingCell */ = {
-			isa = PBXGroup;
-			children = (
-				3AA1C1C21E54B25F006AD293 /* FoldingCell.swift */,
-			);
-			name = FoldingCell;
-			sourceTree = "<group>";
-		};
 		3AA1C1C91E54C7FE006AD293 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,8 +169,6 @@
 		3AA1C1CA1E54C818006AD293 /* GameView */ = {
 			isa = PBXGroup;
 			children = (
-				3AA1C1C71E54B48D006AD293 /* NewGameViewController.swift */,
-				3AA1C1C51E54B307006AD293 /* GameFoldingTableViewCell.swift */,
 				3AE020501DC037DF00E559B8 /* GameViewController.swift */,
 			);
 			name = GameView;
@@ -218,7 +212,6 @@
 		3AEBD7C81DB9353200345071 /* DotaComp */ = {
 			isa = PBXGroup;
 			children = (
-				3AA1C1C41E54B262006AD293 /* FoldingCell */,
 				3AA1C1B41E54AEEC006AD293 /* Font */,
 				3A41F15C1E5374E0009F99FF /* EndedGames */,
 				3ABD1BAD1E3BC5FB009142CA /* Utilities */,
@@ -276,7 +269,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Felipe Dias Pereira";
 				TargetAttributes = {
 					3AEBD7C51DB9353200345071 = {
@@ -308,6 +301,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AA42C1E1E57C32F003BA1EF /* OpenSans-Bold.ttf in Resources */,
+				3AA42C1F1E57C32F003BA1EF /* OpenSans-BoldItalic.ttf in Resources */,
+				3AA42C201E57C32F003BA1EF /* OpenSans-ExtraBold.ttf in Resources */,
+				3AA42C211E57C32F003BA1EF /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				3AA42C221E57C32F003BA1EF /* OpenSans-Italic.ttf in Resources */,
+				3AA42C231E57C32F003BA1EF /* OpenSans-Light.ttf in Resources */,
+				3AA42C241E57C32F003BA1EF /* OpenSans-LightItalic.ttf in Resources */,
+				3AA42C251E57C32F003BA1EF /* OpenSans-Regular.ttf in Resources */,
+				3AA42C261E57C32F003BA1EF /* OpenSans-Semibold.ttf in Resources */,
+				3AA42C271E57C32F003BA1EF /* OpenSans-SemiboldItalic.ttf in Resources */,
 				3AEBD7D41DB9353200345071 /* LaunchScreen.storyboard in Resources */,
 				3AEBD7D11DB9353200345071 /* Assets.xcassets in Resources */,
 				3AEBD7CF1DB9353200345071 /* Main.storyboard in Resources */,
@@ -351,15 +354,12 @@
 				3AA1C1B31E548FF3006AD293 /* FactionPlayer.swift in Sources */,
 				3A41F15B1E527710009F99FF /* DataDownloader.swift in Sources */,
 				3A610F871DB95A560047F3AC /* Scoreboard.swift in Sources */,
-				3AA1C1C61E54B307006AD293 /* GameFoldingTableViewCell.swift in Sources */,
 				3A610F831DB95A380047F3AC /* Faction.swift in Sources */,
-				3AA1C1C81E54B48D006AD293 /* NewGameViewController.swift in Sources */,
 				3AEBD7CA1DB9353200345071 /* AppDelegate.swift in Sources */,
 				3AE020531DC1749400E559B8 /* Player.swift in Sources */,
 				3A2DE15C1E3F7C3200252288 /* GradientView.swift in Sources */,
 				3AE0204D1DBFB6B000E559B8 /* EventSoon.swift in Sources */,
 				3A2C3C041DC26A23008EE5A9 /* MainViewTableViewCell.swift in Sources */,
-				3AA1C1C31E54B25F006AD293 /* FoldingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +403,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -452,6 +453,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

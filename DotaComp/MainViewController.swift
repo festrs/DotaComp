@@ -40,7 +40,7 @@ class MainViewController: UIViewController {
     
     struct Keys {
         static let NumberOfSections = 3
-        static let MainCellHeight = 70
+        static let MainCellHeight = 76
         static let MainCellIdentifier = "MainCell"
         static let eventSoonCellIdentifier = "EventSoonCell"
         static let sectionLiveTitle = "Live Games"
@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
         
         activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         tableView.backgroundView = activityIndicatorView
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -261,9 +261,9 @@ extension MainViewController: UITableViewDataSource  {
             
         case 2:
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.MainCellIdentifier, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.MainCellIdentifier, for: indexPath) as! MainViewTableViewCell
             let eventDone = dataDownloader.doneGames[indexPath.row]
-            
+            cell.setUpCellForEndedGame(endedGame: eventDone)
             return cell
             
         default:
