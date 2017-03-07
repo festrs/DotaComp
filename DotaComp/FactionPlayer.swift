@@ -1,7 +1,7 @@
 //
 //  FactionPlayer.swift
 //  DotaComp
-//
+a//
 //  Created by Felipe Dias Pereira on 2017-02-15.
 //  Copyright © 2017 Felipe Dias Pereira. All rights reserved.
 //
@@ -62,4 +62,5 @@ class FactionPlayer: Mappable {
          ultimateState      <- map["ultimate_state"]
          xpPerMin           <- map["xp_per_min"]
     }
+    
 }

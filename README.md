@@ -1,4 +1,4 @@
-#**DotaComp**  [![codebeat badge](https://codebeat.co/badges/6099aa86-3436-4819-a5c1-a1bfa3e73054)](https://codebeat.co/projects/github-com-festrs-dotacomp) [[![Build Status](https://travis-ci.org/festrs/DotaComp.svg?branch=master)](https://travis-ci.org/festrs/DotaComp)
+# **DotaComp**  [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1096164bcdc84c4ea3b9dcfc7fba86df)](https://www.codacy.com/app/festrs/DotaComp?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=festrs/DotaComp&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.org/festrs/DotaComp.svg?branch=master)](https://travis-ci.org/festrs/DotaComp)
 
 # Body
 
@@ -11,8 +11,8 @@ If you wanna contribute fell free to concat and fork the project
 
 # Autor
 
-Felipe Pereira [@festrs](https://github.com/festrs)
+Felipe Pereira [festrs](https://github.com/festrs)
 
-## License
+# License
 
 **DotaComp** is available under the MIT license. See the LICENSE file for more info.
