@@ -30,7 +30,7 @@ class GameViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func loadHeroImages(){
+    func loadHeroImages() {
         let radiantPlayers = game.players?.filter {$0.team! == 0}
         let direPlayers = game.players?.filter {$0.team! == 1}
         
@@ -52,7 +52,7 @@ class GameViewController: UIViewController {
 
     }
     
-    func addLabel(imageView:UIImageView, player:Player){
+    func addLabel(imageView:UIImageView, player:Player) {
         let label = UILabel(frame: CGRect(x: 0, y: imageView.frame.height-21, width: 150, height: 21))
         label.textColor = UIColor.white
         label.textAlignment = .center
@@ -61,7 +61,7 @@ class GameViewController: UIViewController {
         addLabelConstraints(label: label, superView: imageView)
     }
     
-    func addLabelConstraints(label:UILabel, superView:UIView){
+    func addLabelConstraints(label:UILabel, superView:UIView) {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.leadingAnchor.constraint(equalTo: superView.leadingAnchor, constant: 0).isActive = true
         label.trailingAnchor.constraint(equalTo: superView.trailingAnchor, constant: 0).isActive = true
