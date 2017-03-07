@@ -36,6 +36,7 @@ class GradientView: UIImageView {
             gradient.locations = [0.0, 0.25, 0.5, 1.0]
             self.layer.addSublayer(gradient)
         }
+
     }
     
     func areEqualImages(img1: UIImage, img2: UIImage) -> Bool {

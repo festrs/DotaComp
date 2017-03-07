@@ -26,9 +26,9 @@ class LiveGamesTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setUpCell(liveGame: Game){
-        let direTeam = liveGame.direTeam?.teamName.map({ $0 }) ?? ""
-        let radiantTeam = liveGame.radiantTeam?.teamName.map({ $0 }) ?? ""
+    func setUpCell(liveGame: Game) {
+        let direTeam = liveGame.direTeam?.teamName.map { $0 } ?? ""
+        let radiantTeam = liveGame.radiantTeam?.teamName.map { $0 } ?? ""
         
         team1Label.text = radiantTeam
         team2Label.text = direTeam
@@ -39,9 +39,7 @@ class LiveGamesTableViewCell: UITableViewCell {
 
     }
     
-    func getSeriesType(seriesType: Int) -> String
-    {
-        
+    func getSeriesType(seriesType: Int) -> String {
         switch seriesType {
         case 0:
             return "Best of 1"
@@ -52,7 +50,6 @@ class LiveGamesTableViewCell: UITableViewCell {
         default:
             return ""
         }
-        
     }
 
 }
