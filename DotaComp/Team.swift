@@ -14,6 +14,10 @@ class Team: Mappable{
     var teamId:Int?
     var teamLogo:Int?
     var teamName:String?
+    var tag:String?
+    var logoUrl:String?
+    var countryCode:String?
+
     
     required init?(map: Map) {
         
@@ -25,5 +29,8 @@ class Team: Mappable{
         teamId          <- map["team_id"]
         teamLogo        <- map["team_logo"]
         teamName        <- map["team_name"]
+        tag             <- map["tag"]
+        countryCode     <- map["country_code"]
+        logoUrl         <- map["logo_url"]
     }
 }

@@ -7,13 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A2C3C041DC26A23008EE5A9 /* EventSoonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C3C031DC26A23008EE5A9 /* EventSoonTableViewCell.swift */; };
+		3A2C3C041DC26A23008EE5A9 /* LiveGamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C3C031DC26A23008EE5A9 /* LiveGamesTableViewCell.swift */; };
+		3A2DE15C1E3F7C3200252288 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DE15B1E3F7C3200252288 /* GradientView.swift */; };
+		3A41F15B1E527710009F99FF /* DataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41F15A1E527710009F99FF /* DataDownloader.swift */; };
 		3A610F7A1DB94BEE0047F3AC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A610F781DB94BEE0047F3AC /* Alamofire.framework */; };
 		3A610F7B1DB94BEE0047F3AC /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A610F791DB94BEE0047F3AC /* ObjectMapper.framework */; };
 		3A610F7F1DB94FFE0047F3AC /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A610F7E1DB94FFE0047F3AC /* Team.swift */; };
 		3A610F831DB95A380047F3AC /* Faction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A610F821DB95A380047F3AC /* Faction.swift */; };
 		3A610F861DB95A560047F3AC /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A610F841DB95A560047F3AC /* Game.swift */; };
 		3A610F871DB95A560047F3AC /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A610F851DB95A560047F3AC /* Scoreboard.swift */; };
+		3AA1C1B31E548FF3006AD293 /* FactionPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C1B21E548FF3006AD293 /* FactionPlayer.swift */; };
+		3AA42C1E1E57C32F003BA1EF /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1B51E54AEF7006AD293 /* OpenSans-Bold.ttf */; };
+		3AA42C1F1E57C32F003BA1EF /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1B61E54AEF7006AD293 /* OpenSans-BoldItalic.ttf */; };
+		3AA42C201E57C32F003BA1EF /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1B71E54AEF7006AD293 /* OpenSans-ExtraBold.ttf */; };
+		3AA42C211E57C32F003BA1EF /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1B81E54AEF7006AD293 /* OpenSans-ExtraBoldItalic.ttf */; };
+		3AA42C221E57C32F003BA1EF /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1B91E54AEF7006AD293 /* OpenSans-Italic.ttf */; };
+		3AA42C231E57C32F003BA1EF /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1BA1E54AEF7006AD293 /* OpenSans-Light.ttf */; };
+		3AA42C241E57C32F003BA1EF /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1BB1E54AEF7006AD293 /* OpenSans-LightItalic.ttf */; };
+		3AA42C251E57C32F003BA1EF /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1BC1E54AEF7006AD293 /* OpenSans-Regular.ttf */; };
+		3AA42C261E57C32F003BA1EF /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1BD1E54AEF7006AD293 /* OpenSans-Semibold.ttf */; };
+		3AA42C271E57C32F003BA1EF /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1BE1E54AEF7006AD293 /* OpenSans-SemiboldItalic.ttf */; };
 		3ABD1BAC1E3BC5F7009142CA /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1BAB1E3BC5F7009142CA /* Events.swift */; };
 		3ABD1BAF1E3BFED6009142CA /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABD1BAE1E3BFED6009142CA /* Chameleon.framework */; };
 		3AE0204D1DBFB6B000E559B8 /* EventSoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE0204C1DBFB6B000E559B8 /* EventSoon.swift */; };
@@ -29,13 +42,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A2C3C031DC26A23008EE5A9 /* EventSoonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSoonTableViewCell.swift; sourceTree = "<group>"; };
+		3A2C3C031DC26A23008EE5A9 /* LiveGamesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveGamesTableViewCell.swift; sourceTree = "<group>"; };
+		3A2DE15B1E3F7C3200252288 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		3A41F1581E5274D4009F99FF /* Async.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Async.framework; path = Carthage/Build/iOS/Async.framework; sourceTree = "<group>"; };
+		3A41F15A1E527710009F99FF /* DataDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDownloader.swift; sourceTree = "<group>"; };
 		3A610F781DB94BEE0047F3AC /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		3A610F791DB94BEE0047F3AC /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		3A610F7E1DB94FFE0047F3AC /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		3A610F821DB95A380047F3AC /* Faction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Faction.swift; sourceTree = "<group>"; };
 		3A610F841DB95A560047F3AC /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3A610F851DB95A560047F3AC /* Scoreboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
+		3AA1C1B21E548FF3006AD293 /* FactionPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactionPlayer.swift; sourceTree = "<group>"; };
+		3AA1C1B51E54AEF7006AD293 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		3AA1C1B61E54AEF7006AD293 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		3AA1C1B71E54AEF7006AD293 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		3AA1C1B81E54AEF7006AD293 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		3AA1C1B91E54AEF7006AD293 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		3AA1C1BA1E54AEF7006AD293 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		3AA1C1BB1E54AEF7006AD293 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		3AA1C1BC1E54AEF7006AD293 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		3AA1C1BD1E54AEF7006AD293 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		3AA1C1BE1E54AEF7006AD293 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		3AA1C1BF1E54B062006AD293 /* FoldingCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FoldingCell.framework; path = Carthage/Build/iOS/FoldingCell.framework; sourceTree = "<group>"; };
 		3ABD1BAB1E3BC5F7009142CA /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		3ABD1BAE1E3BFED6009142CA /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		3AE0204C1DBFB6B000E559B8 /* EventSoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSoon.swift; sourceTree = "<group>"; };
@@ -71,6 +99,21 @@
 			isa = PBXGroup;
 			children = (
 				3AE0204C1DBFB6B000E559B8 /* EventSoon.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3A41F15C1E5374E0009F99FF /* EndedGames */ = {
+			isa = PBXGroup;
+			children = (
+				3A41F15D1E5374EB009F99FF /* Models */,
+			);
+			name = EndedGames;
+			sourceTree = "<group>";
+		};
+		3A41F15D1E5374EB009F99FF /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				3AE0204E1DBFC2A000E559B8 /* EventDone.swift */,
 			);
 			name = Models;
@@ -91,15 +134,52 @@
 				3A610F841DB95A560047F3AC /* Game.swift */,
 				3A610F851DB95A560047F3AC /* Scoreboard.swift */,
 				3A610F821DB95A380047F3AC /* Faction.swift */,
+				3AA1C1B21E548FF3006AD293 /* FactionPlayer.swift */,
 				3AE020521DC1749400E559B8 /* Player.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
 		};
+		3AA1C1B41E54AEEC006AD293 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				3AA1C1B51E54AEF7006AD293 /* OpenSans-Bold.ttf */,
+				3AA1C1B61E54AEF7006AD293 /* OpenSans-BoldItalic.ttf */,
+				3AA1C1B71E54AEF7006AD293 /* OpenSans-ExtraBold.ttf */,
+				3AA1C1B81E54AEF7006AD293 /* OpenSans-ExtraBoldItalic.ttf */,
+				3AA1C1B91E54AEF7006AD293 /* OpenSans-Italic.ttf */,
+				3AA1C1BA1E54AEF7006AD293 /* OpenSans-Light.ttf */,
+				3AA1C1BB1E54AEF7006AD293 /* OpenSans-LightItalic.ttf */,
+				3AA1C1BC1E54AEF7006AD293 /* OpenSans-Regular.ttf */,
+				3AA1C1BD1E54AEF7006AD293 /* OpenSans-Semibold.ttf */,
+				3AA1C1BE1E54AEF7006AD293 /* OpenSans-SemiboldItalic.ttf */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
+		3AA1C1C91E54C7FE006AD293 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				3AEBD7CB1DB9353200345071 /* MainViewController.swift */,
+				3A2C3C031DC26A23008EE5A9 /* LiveGamesTableViewCell.swift */,
+			);
+			name = MainView;
+			sourceTree = "<group>";
+		};
+		3AA1C1CA1E54C818006AD293 /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				3AE020501DC037DF00E559B8 /* GameViewController.swift */,
+			);
+			name = GameView;
+			sourceTree = "<group>";
+		};
 		3ABD1BAD1E3BC5FB009142CA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				3A2DE15B1E3F7C3200252288 /* GradientView.swift */,
 				3ABD1BAB1E3BC5F7009142CA /* Events.swift */,
+				3A41F15A1E527710009F99FF /* DataDownloader.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -108,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				3A2C3C021DC26A08008EE5A9 /* Models */,
-				3A2C3C031DC26A23008EE5A9 /* EventSoonTableViewCell.swift */,
 			);
 			name = UpComingGames;
 			sourceTree = "<group>";
@@ -133,13 +212,15 @@
 		3AEBD7C81DB9353200345071 /* DotaComp */ = {
 			isa = PBXGroup;
 			children = (
+				3AA1C1B41E54AEEC006AD293 /* Font */,
+				3A41F15C1E5374E0009F99FF /* EndedGames */,
 				3ABD1BAD1E3BC5FB009142CA /* Utilities */,
 				3AE0204B1DB966B300E559B8 /* UpComingGames */,
 				3A610F881DB95B480047F3AC /* LiveGame */,
 				3AEBD7C91DB9353200345071 /* AppDelegate.swift */,
-				3AEBD7CB1DB9353200345071 /* MainViewController.swift */,
+				3AA1C1C91E54C7FE006AD293 /* MainView */,
+				3AA1C1CA1E54C818006AD293 /* GameView */,
 				3AEBD7CD1DB9353200345071 /* Main.storyboard */,
-				3AE020501DC037DF00E559B8 /* GameViewController.swift */,
 				3AEBD7D01DB9353200345071 /* Assets.xcassets */,
 				3AEBD7D21DB9353200345071 /* LaunchScreen.storyboard */,
 				3AEBD7D51DB9353200345071 /* Info.plist */,
@@ -150,6 +231,8 @@
 		3AEBD7DC1DB93A6000345071 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AA1C1BF1E54B062006AD293 /* FoldingCell.framework */,
+				3A41F1581E5274D4009F99FF /* Async.framework */,
 				3ABD1BAE1E3BFED6009142CA /* Chameleon.framework */,
 				3AE020541DC182F700E559B8 /* Kingfisher.framework */,
 				3A610F781DB94BEE0047F3AC /* Alamofire.framework */,
@@ -186,7 +269,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Felipe Dias Pereira";
 				TargetAttributes = {
 					3AEBD7C51DB9353200345071 = {
@@ -218,6 +301,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AA42C1E1E57C32F003BA1EF /* OpenSans-Bold.ttf in Resources */,
+				3AA42C1F1E57C32F003BA1EF /* OpenSans-BoldItalic.ttf in Resources */,
+				3AA42C201E57C32F003BA1EF /* OpenSans-ExtraBold.ttf in Resources */,
+				3AA42C211E57C32F003BA1EF /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				3AA42C221E57C32F003BA1EF /* OpenSans-Italic.ttf in Resources */,
+				3AA42C231E57C32F003BA1EF /* OpenSans-Light.ttf in Resources */,
+				3AA42C241E57C32F003BA1EF /* OpenSans-LightItalic.ttf in Resources */,
+				3AA42C251E57C32F003BA1EF /* OpenSans-Regular.ttf in Resources */,
+				3AA42C261E57C32F003BA1EF /* OpenSans-Semibold.ttf in Resources */,
+				3AA42C271E57C32F003BA1EF /* OpenSans-SemiboldItalic.ttf in Resources */,
 				3AEBD7D41DB9353200345071 /* LaunchScreen.storyboard in Resources */,
 				3AEBD7D11DB9353200345071 /* Assets.xcassets in Resources */,
 				3AEBD7CF1DB9353200345071 /* Main.storyboard in Resources */,
@@ -258,12 +351,15 @@
 				3AE0204F1DBFC2A000E559B8 /* EventDone.swift in Sources */,
 				3AEBD7CC1DB9353200345071 /* MainViewController.swift in Sources */,
 				3AE020511DC037DF00E559B8 /* GameViewController.swift in Sources */,
+				3AA1C1B31E548FF3006AD293 /* FactionPlayer.swift in Sources */,
+				3A41F15B1E527710009F99FF /* DataDownloader.swift in Sources */,
 				3A610F871DB95A560047F3AC /* Scoreboard.swift in Sources */,
 				3A610F831DB95A380047F3AC /* Faction.swift in Sources */,
 				3AEBD7CA1DB9353200345071 /* AppDelegate.swift in Sources */,
 				3AE020531DC1749400E559B8 /* Player.swift in Sources */,
+				3A2DE15C1E3F7C3200252288 /* GradientView.swift in Sources */,
 				3AE0204D1DBFB6B000E559B8 /* EventSoon.swift in Sources */,
-				3A2C3C041DC26A23008EE5A9 /* EventSoonTableViewCell.swift in Sources */,
+				3A2C3C041DC26A23008EE5A9 /* LiveGamesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +403,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -356,6 +453,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

@@ -21,6 +21,11 @@ class Game : Mappable{
     var matchId:Int?
     var radiantSeriesWins:Int?
     var seriesId:Int?
+    var tournamentName:String?
+    
+    // 0 = best of 2
+    // 1 = best of 3
+    // 2 = best of 5
     var seriesType:Int?
     var spectators:Int?
     var streamDelayS:Int?
@@ -53,6 +58,7 @@ class Game : Mappable{
         radiantTeam         <- map["radiant_team"]
         scoreboard          <- map["scoreboard"]
         players             <- map["players"]
+        tournamentName      <- map["tournament_name"]
     }
 
 

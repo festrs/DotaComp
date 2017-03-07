@@ -13,6 +13,7 @@ class Faction: Mappable {
     var barracksState:Int?
     var score:Int?
     var towerState:Int?
+    var players:[FactionPlayer]?
     
     required init?(map: Map) {
         
@@ -23,5 +24,6 @@ class Faction: Mappable {
         barracksState   <- map["barracks_state"]
         score           <- map["score"]
         towerState      <- map["tower_state"]
+        players         <- map["players"]
     }
 }
