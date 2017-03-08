@@ -21,10 +21,6 @@ class LiveGamesTableViewCell: UITableViewCell {
         backView.layer.cornerRadius = 8
         backView.layer.masksToBounds = true
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     func setUpCell(liveGame: Game) {
         let direTeam = liveGame.direTeam?.teamName.map { $0 } ?? ""
@@ -36,7 +32,6 @@ class LiveGamesTableViewCell: UITableViewCell {
         timeLabel.text = "LIVE"
         
         bestOfLabel.text = getSeriesType(seriesType: liveGame.seriesType!)
-
     }
     
     func getSeriesType(seriesType: Int) -> String {

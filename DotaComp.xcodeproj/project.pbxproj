@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A2C3C041DC26A23008EE5A9 /* LiveGamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C3C031DC26A23008EE5A9 /* LiveGamesTableViewCell.swift */; };
+		3A2D2E061E7072F7007C0966 /* EventSoonGamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D2E051E7072F7007C0966 /* EventSoonGamesTableViewCell.swift */; };
 		3A2DE15C1E3F7C3200252288 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DE15B1E3F7C3200252288 /* GradientView.swift */; };
 		3A41F15B1E527710009F99FF /* DataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41F15A1E527710009F99FF /* DataDownloader.swift */; };
 		3A610F7A1DB94BEE0047F3AC /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A610F781DB94BEE0047F3AC /* Alamofire.framework */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		3A2C3C031DC26A23008EE5A9 /* LiveGamesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveGamesTableViewCell.swift; sourceTree = "<group>"; };
+		3A2D2E051E7072F7007C0966 /* EventSoonGamesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSoonGamesTableViewCell.swift; sourceTree = "<group>"; };
 		3A2DE15B1E3F7C3200252288 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		3A41F1581E5274D4009F99FF /* Async.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Async.framework; path = Carthage/Build/iOS/Async.framework; sourceTree = "<group>"; };
 		3A41F15A1E527710009F99FF /* DataDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDownloader.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				3AEBD7CB1DB9353200345071 /* MainViewController.swift */,
 				3A2C3C031DC26A23008EE5A9 /* LiveGamesTableViewCell.swift */,
+				3A2D2E051E7072F7007C0966 /* EventSoonGamesTableViewCell.swift */,
 			);
 			name = MainView;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				3AEBD7CC1DB9353200345071 /* MainViewController.swift in Sources */,
 				3AE020511DC037DF00E559B8 /* GameViewController.swift in Sources */,
 				3AA1C1B31E548FF3006AD293 /* FactionPlayer.swift in Sources */,
+				3A2D2E061E7072F7007C0966 /* EventSoonGamesTableViewCell.swift in Sources */,
 				3A41F15B1E527710009F99FF /* DataDownloader.swift in Sources */,
 				3A610F871DB95A560047F3AC /* Scoreboard.swift in Sources */,
 				3A610F831DB95A380047F3AC /* Faction.swift in Sources */,

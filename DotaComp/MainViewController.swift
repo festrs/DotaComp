@@ -27,6 +27,7 @@ extension UIView
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var gamesSementedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
     var refreshImageView: UIImageView!
@@ -39,11 +40,10 @@ class MainViewController: UIViewController {
     }
     
     struct Keys {
-        static let NumberOfSections = 3
         static let MainCellHeight = 76
         static let MainCellIdentifier = "MainCell"
-        static let GamesLiveCellIdentifier = "LiveGamesCell"
-        static let eventSoonCellIdentifier = "EventSoonCell"
+        static let LiveGamesCellIdentifier = "LiveGamesCell"
+        static let EventSoonGamesCellIdentifier = "EventSoonGamesCell"
         static let sectionLiveTitle = "Live Games"
         static let sectionSoonTitle = "Upcoming Games"
         static let sectionDoneTitle = "Done Games"
@@ -72,14 +72,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     func configRefreshControl() {
         refreshControl = UIRefreshControl()
         refreshControl.backgroundColor = UIColor.clear
@@ -99,6 +91,14 @@ class MainViewController: UIViewController {
         refreshControl.addSubview(refreshImageView)
         
         tableView.addSubview(refreshControl)
+    }
+    
+    @IBAction func refreshGames(_ sender: Any) {
+        reloadData()
+    }
+    
+    @IBAction func segmentChanged(_ sender: Any) {
+        tableView.reloadData();
     }
     
     func refresh(sender:AnyObject) {
@@ -214,21 +214,8 @@ extension MainViewController: UITableViewDataSource  {
         return CGFloat(Keys.MainCellHeight)
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return Keys.sectionLiveTitle
-        case 1:
-            return Keys.sectionSoonTitle
-        case 2:
-            return Keys.sectionDoneTitle
-        default:
-            return ""
-        }
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
+        switch gamesSementedControl.selectedSegmentIndex {
         case 0:
             return dataDownloader.liveGames.count
         case 1:
@@ -240,35 +227,31 @@ extension MainViewController: UITableViewDataSource  {
         }
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return Keys.NumberOfSections;
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.section {
+        switch gamesSementedControl.selectedSegmentIndex {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.GamesLiveCellIdentifier, for: indexPath) as! LiveGamesTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.LiveGamesCellIdentifier, for: indexPath) as! LiveGamesTableViewCell
             let game = dataDownloader.liveGames[indexPath.row]
             cell.setUpCell(liveGame: game)
             return cell
             
         case 1:
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.GamesLiveCellIdentifier, for: indexPath) as! LiveGamesTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.EventSoonGamesCellIdentifier, for: indexPath) as! EventSoonGamesTableViewCell
             let eventSoon = dataDownloader.soonGames[indexPath.row]
-            //cell.setUpCellForUpComingGame(upComingGame: eventSoon)
+            cell.setUpCellForUpComingGame(upComingGame: eventSoon)
             return cell
             
         case 2:
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.GamesLiveCellIdentifier, for: indexPath) as! LiveGamesTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.LiveGamesCellIdentifier, for: indexPath) as! LiveGamesTableViewCell
             let eventDone = dataDownloader.doneGames[indexPath.row]
             //cell.setUpCellForEndedGame(endedGame: eventDone)
             return cell
             
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.GamesLiveCellIdentifier, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.LiveGamesCellIdentifier, for: indexPath)
             return cell
         }
     }
