@@ -23,7 +23,6 @@ class EventSoonGamesTableViewCell: UITableViewCell {
         timeLabel.text = upComingGame.fullDate?.condensedWhitespace
         
         bestOfLabel.text = "Best of \(upComingGame.bestof!)"
-        
     }
 
 }

@@ -44,9 +44,7 @@ class MainViewController: UIViewController {
         static let MainCellIdentifier = "MainCell"
         static let LiveGamesCellIdentifier = "LiveGamesCell"
         static let EventSoonGamesCellIdentifier = "EventSoonGamesCell"
-        static let sectionLiveTitle = "Live Games"
-        static let sectionSoonTitle = "Upcoming Games"
-        static let sectionDoneTitle = "Done Games"
+        static let DoneGamesCellIdentifier = "DoneGamesCell"
         static let segueIdentifier = "toGame"
     }
     
@@ -112,7 +110,7 @@ class MainViewController: UIViewController {
         })
     }
     
-    func reloadData(){
+    func reloadData() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.dataDownloader.updateData(){
             error in
@@ -123,7 +121,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    func stopRefreshing(){
+    func stopRefreshing() {
         tableView.reloadData();
         refreshImageView.stopAnimating()
         refreshControl.endRefreshing()
@@ -193,9 +191,9 @@ extension MainViewController: UIScrollViewDelegate {
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0{
+        if gamesSementedControl.selectedSegmentIndex == 0 {
             self.performSegue(withIdentifier: Keys.segueIdentifier, sender: indexPath)
-        } else if indexPath.section == 1{
+        } else if gamesSementedControl.selectedSegmentIndex == 1 {
             let upComingGame = dataDownloader.soonGames[indexPath.row]
             if let url = URL(string: upComingGame.linkID!) {
                 UIApplication.shared.open(url, options: [:]) {
@@ -203,11 +201,19 @@ extension MainViewController: UITableViewDelegate {
     
                 }
             }
+        } else {
+            let doneGame = dataDownloader.doneGames[indexPath.row]
+            if let url = URL(string: doneGame.linkID!) {
+                UIApplication.shared.open(url, options: [:]) {
+                    boolean in
+                    
+                }
+            }
         }
     }
 }
 
-extension MainViewController: UITableViewDataSource  {
+extension MainViewController: UITableViewDataSource {
     
     @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
@@ -237,17 +243,15 @@ extension MainViewController: UITableViewDataSource  {
             return cell
             
         case 1:
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: Keys.EventSoonGamesCellIdentifier, for: indexPath) as! EventSoonGamesTableViewCell
             let eventSoon = dataDownloader.soonGames[indexPath.row]
             cell.setUpCellForUpComingGame(upComingGame: eventSoon)
             return cell
             
         case 2:
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.LiveGamesCellIdentifier, for: indexPath) as! LiveGamesTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Keys.DoneGamesCellIdentifier, for: indexPath) as! DoneGamesTableViewCell
             let eventDone = dataDownloader.doneGames[indexPath.row]
-            //cell.setUpCellForEndedGame(endedGame: eventDone)
+            cell.setUpCellForEndedGame(doneGame: eventDone)
             return cell
             
         default:

@@ -28,6 +28,7 @@
 		3AA42C251E57C32F003BA1EF /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1BC1E54AEF7006AD293 /* OpenSans-Regular.ttf */; };
 		3AA42C261E57C32F003BA1EF /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1BD1E54AEF7006AD293 /* OpenSans-Semibold.ttf */; };
 		3AA42C271E57C32F003BA1EF /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1C1BE1E54AEF7006AD293 /* OpenSans-SemiboldItalic.ttf */; };
+		3AACBC2D1E75921E00FBBE01 /* DoneGamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AACBC2C1E75921E00FBBE01 /* DoneGamesTableViewCell.swift */; };
 		3ABD1BAC1E3BC5F7009142CA /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1BAB1E3BC5F7009142CA /* Events.swift */; };
 		3ABD1BAF1E3BFED6009142CA /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABD1BAE1E3BFED6009142CA /* Chameleon.framework */; };
 		3AE0204D1DBFB6B000E559B8 /* EventSoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE0204C1DBFB6B000E559B8 /* EventSoon.swift */; };
@@ -66,6 +67,7 @@
 		3AA1C1BD1E54AEF7006AD293 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		3AA1C1BE1E54AEF7006AD293 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		3AA1C1BF1E54B062006AD293 /* FoldingCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FoldingCell.framework; path = Carthage/Build/iOS/FoldingCell.framework; sourceTree = "<group>"; };
+		3AACBC2C1E75921E00FBBE01 /* DoneGamesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneGamesTableViewCell.swift; sourceTree = "<group>"; };
 		3ABD1BAB1E3BC5F7009142CA /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		3ABD1BAE1E3BFED6009142CA /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		3AE0204C1DBFB6B000E559B8 /* EventSoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSoon.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				3AEBD7CB1DB9353200345071 /* MainViewController.swift */,
 				3A2C3C031DC26A23008EE5A9 /* LiveGamesTableViewCell.swift */,
 				3A2D2E051E7072F7007C0966 /* EventSoonGamesTableViewCell.swift */,
+				3AACBC2C1E75921E00FBBE01 /* DoneGamesTableViewCell.swift */,
 			);
 			name = MainView;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				TargetAttributes = {
 					3AEBD7C51DB9353200345071 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 439F5NHE7E;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -352,6 +356,7 @@
 				3A610F7F1DB94FFE0047F3AC /* Team.swift in Sources */,
 				3A610F861DB95A560047F3AC /* Game.swift in Sources */,
 				3AE0204F1DBFC2A000E559B8 /* EventDone.swift in Sources */,
+				3AACBC2D1E75921E00FBBE01 /* DoneGamesTableViewCell.swift in Sources */,
 				3AEBD7CC1DB9353200345071 /* MainViewController.swift in Sources */,
 				3AE020511DC037DF00E559B8 /* GameViewController.swift in Sources */,
 				3AA1C1B31E548FF3006AD293 /* FactionPlayer.swift in Sources */,
@@ -488,7 +493,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Felipe Dias Pereira (4ESLPZ55NB)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Felipe Dias Pereira (4ESLPZ55NB)";
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 439F5NHE7E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -497,9 +503,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = felipep.com.DotaComp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "921736fc-7f03-4ac7-bd3c-6902d0239d07";
 				PROVISIONING_PROFILE_SPECIFIER = "felipep.com.DotaComp Development";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -509,7 +516,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Felipe Pereira (439F5NHE7E)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Felipe Pereira (439F5NHE7E)";
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 439F5NHE7E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -518,9 +526,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = felipep.com.DotaComp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3d5b3ccf-6b0c-4774-8060-e55d46c38a7d";
 				PROVISIONING_PROFILE_SPECIFIER = "felipep.com.DotaComp AppStore";
 				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
