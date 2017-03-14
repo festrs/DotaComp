@@ -9,19 +9,17 @@
 import UIKit
 
 class EventSoonGamesTableViewCell: UITableViewCell {
-
     @IBOutlet weak var bestOfLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var direLabel: UILabel!
     @IBOutlet weak var radiantLabel: UILabel!
 
-    
-    func setUpCellForUpComingGame(upComingGame: EventSoon){
+    func setUpCellForUpComingGame(upComingGame: EventSoon) {
         radiantLabel.text = upComingGame.team1
         direLabel.text = upComingGame.team2
         
         timeLabel.text = upComingGame.fullDate?.condensedWhitespace
-        
+    
         bestOfLabel.text = "Best of \(upComingGame.bestof!)"
     }
 

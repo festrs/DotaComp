@@ -11,9 +11,11 @@ import Kingfisher
 import Chameleon
 
 class GameViewController: UIViewController {
-    
-    @IBOutlet weak var clockBarButton: UIBarButtonItem!
+    @IBOutlet weak var radiantView: UIView!
+    @IBOutlet weak var direView: UIView!
     var game:Game!
+    @IBOutlet weak var radiantLabel: UILabel!
+    @IBOutlet weak var direLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +23,23 @@ class GameViewController: UIViewController {
         let direTeamTag = game.direTeam?.tag ?? game.direTeam?.teamName
         let radiantTeamTag = game.radiantTeam?.tag ?? game.radiantTeam?.teamName
         
-        title = "\(radiantTeamTag!) x \(direTeamTag!)"
-        
+        title = "\(direTeamTag!) VS \(radiantTeamTag!)"
+        radiantLabel.text = game.radiantTeam?.teamName!
+        direLabel.text = game.direTeam?.teamName!
         loadHeroImages()
+        
+        self.view.backgroundColor = GradientColor(.topToBottom, frame: self.view.frame, colors: [UIColor.flatRedDark,UIColor.flatGreenDark])
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        var frame = CGRect()
+        frame.size = size
+        if UIDevice.current.orientation.isLandscape {
+            self.view.backgroundColor = GradientColor(.leftToRight, frame: frame, colors: [UIColor.flatRedDark,UIColor.flatGreenDark])
+        } else {
+            self.view.backgroundColor = GradientColor(.topToBottom, frame: frame, colors: [UIColor.flatRedDark,UIColor.flatGreenDark])
+        }
     }
     
     func loadHeroImages() {
@@ -35,21 +47,23 @@ class GameViewController: UIViewController {
         let direPlayers = game.players?.filter {$0.team! == 1}
         
         for (index, player) in (radiantPlayers?.enumerated())! {
-            if let imageView = self.view.viewWithTag(index+1) as? UIImageView{
-                let url = URL(string: player.heroImageUrl!)
-                imageView.kf.setImage(with: url, placeholder: UIImage(named: "Placeholder"))
-                addLabel(imageView: imageView, player: player)
+            if let imageView = self.view.viewWithTag(index+6) as? UIImageView{
+                setImagePlayer(imageView: imageView,player: player)
             }
         }
         
         for (index, player) in (direPlayers?.enumerated())! {
-            if let imageView = self.view.viewWithTag(index+6) as? UIImageView{
-                let url = URL(string: player.heroImageUrl!)
-                imageView.kf.setImage(with: url, placeholder: UIImage(named: "Placeholder"))
-                addLabel(imageView: imageView, player: player)
+            if let imageView = self.view.viewWithTag(index+1) as? UIImageView{
+                setImagePlayer(imageView: imageView,player: player)
             }
         }
 
+    }
+    
+    func setImagePlayer(imageView: UIImageView, player: Player) {
+        let url = URL(string: player.heroImageUrl!)
+        imageView.kf.setImage(with: url, placeholder: UIImage(named: "draft"))
+        addLabel(imageView: imageView, player: player)
     }
     
     func addLabel(imageView:UIImageView, player:Player) {
@@ -67,6 +81,4 @@ class GameViewController: UIViewController {
         label.trailingAnchor.constraint(equalTo: superView.trailingAnchor, constant: 0).isActive = true
         label.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: 0).isActive = true
     }
-
-
 }

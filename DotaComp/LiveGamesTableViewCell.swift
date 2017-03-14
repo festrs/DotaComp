@@ -9,7 +9,6 @@
 import UIKit
 
 class LiveGamesTableViewCell: UITableViewCell {
-
     @IBOutlet weak var team1Label: UILabel!
     @IBOutlet weak var team2Label: UILabel!
     @IBOutlet weak var bestOfLabel: UILabel!

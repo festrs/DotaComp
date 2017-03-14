@@ -6,19 +6,24 @@
     <img src="https://img.shields.io/cocoapods/dt/ChameleonFramework.svg?maxAge=86400" alt="Downloads"/>  
     <img src="https://img.shields.io/cocoapods/at/ChameleonFramework.svg?maxAge=86400" alt="Apps"/>
     <img src="https://img.shields.io/badge/platform-iOS%208%2B-blue.svg?style=flat" alt="Platform: iOS 8+"/>
-    <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift-2.2-4BC51D.svg?style=flat" alt="Language: Swift" /></a>
+    <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/language-swift%203-4BC51D.svg?style=flat" alt="Language: Swift 3" /></a>
     <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible" /></a>
     <a href="https://cocoapods.org/pods/ChameleonFramework"><img src="https://cocoapod-badges.herokuapp.com/v/ChameleonFramework/badge.png" alt="CocoaPods compatible" /></a>
     <img src="http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat" alt="License: MIT" /> <br><br>
 </p>
+
+## Swift 3
+
+To use the Swift 3 version, add this to your Podfile (until 2.2 or higher is released):
+```ruby
+pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+```
 
 ## Introduction
 
 **Chameleon** is a lightweight, yet powerful, color framework for iOS (Objective-C & Swift). It is built on the idea that software applications should function effortlessly while simultaneously maintaining their beautiful interfaces.
 
 With Chameleon, you can easily stop tinkering with RGB values, wasting hours figuring out the right color combinations to use in your app, and worrying about whether your text will be readable on the various background colors of your app. 
-
-###### Update: Chameleon now works with app extensions! 🔥
 
 ### Features
 
@@ -40,15 +45,6 @@ With Chameleon, you can easily stop tinkering with RGB values, wasting hours fig
 [● Author](https://github.com/ViccAlexander/Chameleon#-author)   
 [● To Do List](https://github.com/ViccAlexander/Chameleon#-to-do-list)  
 [● Change Log](https://github.com/ViccAlexander/Chameleon#-change-log)  
-
-<!--- 
-&nbsp;&nbsp;￮ [Installation](https://github.com/ViccAlexander/Chameleon#installation)  
-&nbsp;&nbsp;￮ [Usage](https://github.com/ViccAlexander/Chameleon#usage)  
-&nbsp;&nbsp;￮ [UIColor Methods](https://github.com/ViccAlexander/Chameleon#uicolor-methods)  
-&nbsp;&nbsp;￮ [UIStatusBarStyle Methods](https://github.com/ViccAlexander/Chameleon#uistatusbarstyle-methods)    
-&nbsp;&nbsp;￮ [Color Scheme Methods](https://github.com/ViccAlexander/Chameleon#color-schemes-methods)    
-&nbsp;&nbsp;￮ [Flatify Methods (Beta)](https://github.com/ViccAlexander/Chameleon#flatify-methods-beta) 
---->
 
 ## 🌟 Product Features
 
@@ -265,7 +261,7 @@ self.view.backgroundColor = [UIColor flatGreenColorDark];
 ```
 ######Swift
 ``` swift
-view.backgroundColor = UIColor.flatGreenColorDark()
+view.backgroundColor = UIColor.flatGreenDark
 ```
 
 #####Chameleon Shorthand:
@@ -288,7 +284,7 @@ self.view.backgroundColor = [UIColor flatGreenColor];
 ```
 ######Swift
 ``` swift
-view.backgroundColor = UIColor.flatGreenColor()
+view.backgroundColor = UIColor.flatGreen
 ```
 
 #####Chameleon Shorthand:
@@ -312,7 +308,7 @@ self.view.backgroundColor = [UIColor randomFlatColor];
 ```
 ######Swift
 ``` swift
-view.backgroundColor = UIColor.randomFlatColor()
+view.backgroundColor = UIColor.randomFlat()
 ```
 
 #####Chameleon Shorthand:
@@ -468,7 +464,7 @@ As mentioned previously, this feature is unique to Chameleon. While this feature
 
 ######Swift
 ``` swift
-UIColor.pinkColor().flatten()
+UIColor.pink.flatten()
 ```
 
 #### Gradient Colors
@@ -480,6 +476,8 @@ Chameleon provides three simple gradient styles. Gradients can be created from a
 **UIGradientStyles:**
 * `UIGradientStyleLeftToRight` (UIGradientStyle.LeftToRight in Swift)
 * `UIGradientStyleTopToBottom` (UIGradientStyle.TopToBottom in Swift)
+* `UIGradientStyleTopLeftToBottomRight` (UIGradientStyle.TopLeftToBottomRight in Swift)
+* `UIGradientStyleTopRightToBottomLeft` (UIGradientStyle.TopRightToBottomLeft in Swift)
 * `UIGradientStyleRadial` (UIGradientStyle.Radial in Swift)
 
 #####Normal Convention:
@@ -695,7 +693,7 @@ NSMutableArray *colorArray = [NSMutableArray alloc] initWithArray:[NSArray array
 
 ######Swift
 ``` swift
-var colorArray = NSArray(ofColorsWithColorScheme:ColorScheme.Analogous, with:UIColor.flatRedColor(), flatScheme:true)
+var colorArray = NSArray(ofColorsWithColorScheme:ColorScheme.Analogous, with:UIColor.flatRed, flatScheme:true)
 ```
 
 #####Chameleon Shorthand:
@@ -724,8 +722,6 @@ var firstColor = colorArray[0] as! UIColor
 ###Theme Methods
 
 With Chameleon, you can now specify a global color theme with simply one line of code (It even takes care of dealing with the status bar style as well)! Here's one of three methods to get you started. `ContentStyle` allows you to decide whether text and a few other elements should be white, black, or whichever contrasts more over any UI element's `backgroundColor`. 
-
-######Note: `ContentStyle` is not available in App Extensions.
 
 To set a global theme, you can do the following in your app delegate:
 

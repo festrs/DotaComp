@@ -10,7 +10,6 @@
 #import "UILabel+Chameleon.h"
 #import "UIButton+Chameleon.h"
 #import "UIAppearance+Swift.h"
-#import "UIApplication+CHSharedApplication.h"
 
 @implementation Chameleon
 
@@ -20,8 +19,23 @@
 + (void)setGlobalThemeUsingPrimaryColor:(UIColor *)primaryColor
                        withContentStyle:(UIContentStyle)contentStyle {
     
+    if (contentStyle == UIContentStyleContrast) {
+        
+        if ([ContrastColor(primaryColor, YES) isEqual:FlatWhite]) {
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        } else {
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+        }
+        
+    } else if (contentStyle == UIContentStyleLight) {
+        
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        
+    } else {
+        
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    }
     
-    [[self class] updateStatusBarWithPrimaryColor:primaryColor andContentStyle:contentStyle];
     [[self class] customizeBarButtonItemWithPrimaryColor:primaryColor contentStyle:contentStyle];
     [[self class] customizeButtonWithPrimaryColor:primaryColor withContentStyle:contentStyle];
     [[self class] customizeNavigationBarWithPrimaryColor:primaryColor withContentStyle:contentStyle];
@@ -42,7 +56,23 @@
                      withSecondaryColor:(UIColor *)secondaryColor
                         andContentStyle:(UIContentStyle)contentStyle {
     
-    [[self class] updateStatusBarWithPrimaryColor:primaryColor andContentStyle:contentStyle];
+    if (contentStyle == UIContentStyleContrast) {
+        
+        if ([ContrastColor(primaryColor, YES) isEqual:FlatWhite]) {
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        } else {
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+        }
+        
+    } else if (contentStyle == UIContentStyleLight) {
+        
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        
+    } else {
+        
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    }
+    
     [[self class] customizeBarButtonItemWithPrimaryColor:primaryColor contentStyle:contentStyle];
     [[self class] customizeButtonWithPrimaryColor:primaryColor secondaryColor:secondaryColor withContentStyle:contentStyle];
     [[self class] customizeNavigationBarWithPrimaryColor:primaryColor withContentStyle:contentStyle];
@@ -63,7 +93,23 @@
                           usingFontName:(NSString *)fontName
                         andContentStyle:(UIContentStyle)contentStyle {
     
-    [[self class] updateStatusBarWithPrimaryColor:primaryColor andContentStyle:contentStyle];
+    if (contentStyle == UIContentStyleContrast) {
+        
+        if ([ContrastColor(primaryColor, YES) isEqual:FlatWhite]) {
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        } else {
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+        }
+        
+    } else if (contentStyle == UIContentStyleLight) {
+        
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        
+    } else {
+        
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    }
+    
     [[UILabel appearance] setSubstituteFontName:fontName];
     [[UIButton appearance] setSubstituteFontName:fontName];
     
@@ -113,33 +159,6 @@
      [[self class] customizeToolbarWithPrimaryColor:primaryColor withContentStyle:contentStyle];
      
      */
-}
-
-#pragma mark - UIStatusBarStyle
-
-+ (void)updateStatusBarWithPrimaryColor:(UIColor *)primaryColor andContentStyle:(UIContentStyle)contentStyle {
-    
-    UIApplication *application = [UIApplication CH_sharedApplication];
-    if (contentStyle == UIContentStyleContrast && application) {
-        
-        if ([ContrastColor(primaryColor, YES) isEqual:FlatWhite]) {
-            [application setStatusBarStyle:UIStatusBarStyleLightContent];
-        } else {
-            [application setStatusBarStyle:UIStatusBarStyleDefault];
-        }
-        
-    } else if (contentStyle == UIContentStyleLight) {
-        
-        if (application) {
-            [application setStatusBarStyle:UIStatusBarStyleLightContent];
-        }
-        
-    } else {
-        
-        if (application) {
-            [application setStatusBarStyle:UIStatusBarStyleDefault];
-        }
-    }
 }
 
 #pragma mark - UIBarButtonItem

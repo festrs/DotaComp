@@ -78,7 +78,7 @@ public func GradientColor(_ gradientStyle: UIGradientStyle, frame: CGRect, color
     return UIColor(gradientStyle: gradientStyle, withFrame: frame, andColors: colors)
 }
 
-public func HexColor(_ hexString: String, _ alpha: CGFloat = 1.0) -> UIColor {
+public func HexColor(_ hexString: String, _ alpha: CGFloat = 1.0) -> UIColor? {
     return UIColor(hexString: hexString, withAlpha: alpha)
 }
 
@@ -123,3 +123,215 @@ public func ColorsFromImage(_ image: UIImage, withFlatScheme: Bool) -> [UIColor]
     return NSArray(ofColorsFrom: image, withFlatScheme: withFlatScheme) as! [UIColor]
 }
 
+
+// MARK: - Special Colors Shorthand
+
+/**
+Returns a randomly generated flat color object whose alpha value is 1.0.
+
+- returns: A flat UIColor object in the HSB colorspace.
+*/
+public func RandomFlatColor() -> UIColor {
+    return UIColor.randomFlat
+}
+
+public func ClearColor() -> UIColor {
+    return UIColor.clear
+}
+
+
+// MARK: - Light Shades Shorthand
+
+public func FlatBlack() -> UIColor {
+	return UIColor.flatBlack 
+}
+
+public func FlatBlue() -> UIColor {
+	return UIColor.flatBlue 
+}
+
+public func FlatBrown() -> UIColor {
+	return UIColor.flatBrown 
+}
+
+public func FlatCoffee() -> UIColor {
+	return UIColor.flatCoffee 
+}
+
+public func FlatForestGreen() -> UIColor {
+	return UIColor.flatForestGreen 
+}
+
+public func FlatGray() -> UIColor {
+	return UIColor.flatGray 
+}
+
+public func FlatGreen() -> UIColor {
+	return UIColor.flatGreen 
+}
+
+public func FlatLime() -> UIColor {
+	return UIColor.flatLime 
+}
+
+public func FlatMagenta() -> UIColor {
+	return UIColor.flatMagenta 
+}
+
+public func FlatMaroon() -> UIColor {
+	return UIColor.flatMaroon 
+}
+
+public func FlatMint() -> UIColor {
+	return UIColor.flatMint 
+}
+
+public func FlatNavyBlue() -> UIColor {
+	return UIColor.flatNavyBlue 
+}
+
+public func FlatOrange() -> UIColor {
+	return UIColor.flatOrange 
+}
+
+public func FlatPink() -> UIColor {
+	return UIColor.flatPink 
+}
+
+public func FlatPlum() -> UIColor {
+	return UIColor.flatPlum 
+}
+
+public func FlatPowderBlue() -> UIColor {
+	return UIColor.flatPowderBlue 
+}
+
+public func FlatPurple() -> UIColor {
+	return UIColor.flatPurple 
+}
+
+public func FlatRed() -> UIColor {
+	return UIColor.flatRed 
+}
+
+public func FlatSand() -> UIColor {
+	return UIColor.flatSand 
+}
+
+public func FlatSkyBlue() -> UIColor {
+	return UIColor.flatSkyBlue 
+}
+
+public func FlatTeal() -> UIColor {
+	return UIColor.flatTeal 
+}
+
+public func FlatWatermelon() -> UIColor {
+	return UIColor.flatWatermelon 
+}
+
+public func FlatWhite() -> UIColor {
+	return UIColor.flatWhite 
+}
+
+public func FlatYellow() -> UIColor {
+	return UIColor.flatYellow 
+}
+
+// MARK: - Chameleon - Dark Shades Shorthand
+
+public func FlatBlackDark() -> UIColor {
+	return UIColor.flatBlackDark 
+}
+
+public func FlatBlueDark() -> UIColor {
+	return UIColor.flatBlueDark
+}
+
+public func FlatBrownDark() -> UIColor {
+	return UIColor.flatBrownDark
+}
+
+public func FlatCoffeeDark() -> UIColor {
+	return UIColor.flatCoffeeDark
+}
+
+public func FlatForestGreenDark() -> UIColor {
+	return UIColor.flatForestGreenDark
+}
+
+public func FlatGrayDark() -> UIColor {
+	return UIColor.flatGrayDark
+}
+
+public func FlatGreenDark() -> UIColor {
+	return UIColor.flatGreenDark
+}
+
+public func FlatLimeDark() -> UIColor {
+	return UIColor.flatLimeDark
+}
+
+public func FlatMagentaDark() -> UIColor {
+	return UIColor.flatMagentaDark
+}
+
+public func FlatMaroonDark() -> UIColor {
+	return UIColor.flatMaroonDark
+}
+
+public func FlatMintDark() -> UIColor {
+	return UIColor.flatMintDark
+}
+
+public func FlatNavyBlueDark() -> UIColor {
+	return UIColor.flatNavyBlueDark
+}
+
+public func FlatOrangeDark() -> UIColor {
+	return UIColor.flatOrangeDark
+}
+
+public func FlatPinkDark() -> UIColor {
+	return UIColor.flatPinkDark
+}
+
+public func FlatPlumDark() -> UIColor {
+	return UIColor.flatPlumDark
+}
+
+public func FlatPowderBlueDark() -> UIColor {
+	return UIColor.flatPowderBlueDark
+}
+
+public func FlatPurpleDark() -> UIColor {
+	return UIColor.flatPurpleDark
+}
+
+public func FlatRedDark() -> UIColor {
+	return UIColor.flatRedDark
+}
+
+public func FlatSandDark() -> UIColor {
+	return UIColor.flatSandDark
+}
+
+public func FlatSkyBlueDark() -> UIColor {
+	return UIColor.flatSkyBlueDark
+}
+
+public func FlatTealDark() -> UIColor {
+	return UIColor.flatTealDark
+}
+
+public func FlatWatermelonDark() -> UIColor {
+	return UIColor.flatWatermelonDark
+}
+
+public func FlatWhiteDark() -> UIColor {
+	return UIColor.flatWhiteDark
+}
+
+public func FlatYellowDark() -> UIColor {
+	return UIColor.flatYellowDark
+}
