@@ -9,7 +9,6 @@
 import UIKit
 
 class LiveGamesTableViewCell: UITableViewCell {
-
     @IBOutlet weak var team1Label: UILabel!
     @IBOutlet weak var team2Label: UILabel!
     @IBOutlet weak var bestOfLabel: UILabel!
@@ -20,10 +19,6 @@ class LiveGamesTableViewCell: UITableViewCell {
         super.awakeFromNib()
         backView.layer.cornerRadius = 8
         backView.layer.masksToBounds = true
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
     func setUpCell(liveGame: Game) {
@@ -36,7 +31,6 @@ class LiveGamesTableViewCell: UITableViewCell {
         timeLabel.text = "LIVE"
         
         bestOfLabel.text = getSeriesType(seriesType: liveGame.seriesType!)
-
     }
     
     func getSeriesType(seriesType: Int) -> String {

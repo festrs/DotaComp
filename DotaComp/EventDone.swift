@@ -15,8 +15,8 @@ class EventDone: Mappable {
     var img1Link:String?
     var img2Link:String?
     var linkID:String?
-    var score1:String?
-    var score2:String?
+    var score1:Int?
+    var score2:Int?
     var team1:String?
     var team2:String?
     var timeStamp:Int?
@@ -33,7 +33,7 @@ class EventDone: Mappable {
         img2Link      <- map["img2"]
         linkID        <- map["linkID"]
         score1        <- map["score1"]
-        score1        <- map["score2"]
+        score2        <- map["score2"]
         team1         <- map["team1"]
         team2         <- map["team2"]
         timeStamp     <- map["timeStamp"]
