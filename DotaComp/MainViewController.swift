@@ -19,7 +19,6 @@ extension UIView
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.bounds
-        
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
         self.addSubview(blurEffectView)
     }
@@ -37,6 +36,8 @@ class MainViewController: UIViewController {
     struct Alerts {
         static let DismissAlert = "Dismiss"
         static let DataDownloaderError = "Error while data downloading."
+        static let DefaultTitle = "Ops"
+        static let DefaultMessage = "There was a problem, please try again."
     }
     
     struct Keys {
@@ -130,7 +131,7 @@ class MainViewController: UIViewController {
     }
     
     func showAlert(_ title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: Alerts.DefaultTitle, message: Alerts.DefaultMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Alerts.DismissAlert, style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
