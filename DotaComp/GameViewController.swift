@@ -13,19 +13,19 @@ import Chameleon
 class GameViewController: UIViewController {
     @IBOutlet weak var radiantView: UIView!
     @IBOutlet weak var direView: UIView!
-    var game:Game!
     @IBOutlet weak var radiantLabel: UILabel!
     @IBOutlet weak var direLabel: UILabel!
+    var game:Game!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let direTeamTag = game.direTeam?.tag ?? game.direTeam?.teamName
         let radiantTeamTag = game.radiantTeam?.tag ?? game.radiantTeam?.teamName
-        
         title = "\(direTeamTag!) VS \(radiantTeamTag!)"
         radiantLabel.text = game.radiantTeam?.teamName!
         direLabel.text = game.direTeam?.teamName!
+        
         loadHeroImages()
         
         self.view.backgroundColor = GradientColor(.topToBottom, frame: self.view.frame, colors: [UIColor.flatRedDark,UIColor.flatGreenDark])
