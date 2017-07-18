@@ -31,9 +31,9 @@ class DataDownloader: NSObject {
         
         dispatchGroup.enter()
         downloadJSON(url: Keys.LiveGamesURL) { (resultJSON, error) in
-            if error != nil{
+            if error != nil {
                 completion(error)
-            }else{
+            } else {
                 self.liveGames = Mapper<Game>().mapArray(JSONArray: resultJSON!)!
             }
             print("updated live games");
@@ -71,7 +71,7 @@ class DataDownloader: NSObject {
         
     }
     
-    func downloadJSON(url: String ,_ completion:@escaping (_ result:[[String: Any]]?,_ error: Error?) ->Void ){
+    func downloadJSON(url: String ,_ completion:@escaping (_ result:[[String: Any]]?,_ error: Error?) ->Void ) {
         Alamofire.request(url).validate().responseJSON { response in
             switch response.result {
             case .success:

@@ -62,7 +62,7 @@ class GameViewController: UIViewController {
     
     func setImagePlayer(imageView: UIImageView, player: Player) {
         let url = URL(string: player.heroImageUrl!)
-        imageView.kf.setImage(with: url, placeholder: UIImage(named: "draft"))
+        imageView.kf.setImage(with: url, placeholder: UIImage(named: "placeholder_image"))
         addLabel(imageView: imageView, player: player)
     }
     
