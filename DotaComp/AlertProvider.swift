@@ -43,7 +43,7 @@ class AlertProvider: NSObject, UNUserNotificationCenterDelegate {
                 content.userInfo = info
                 if let uid = info[Constants.notificationIdentifierKey] as? String {
                     content.sound = UNNotificationSound.default()
-                    //content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
+                    // content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
                     let comp = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second],
                                                                from: date)
                     let trigger = UNCalendarNotificationTrigger(dateMatching: comp, repeats: false)
@@ -115,4 +115,5 @@ class AlertProvider: NSObject, UNUserNotificationCenterDelegate {
             }
         }
     }
+
 }
