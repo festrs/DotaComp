@@ -17,10 +17,24 @@ class EventSoonGamesTableViewCell: UITableViewCell {
     func setUpCellForUpComingGame(upComingGame: EventSoon) {
         radiantLabel.text = upComingGame.team1
         direLabel.text = upComingGame.team2
-        
-        timeLabel.text = upComingGame.fullDate?.condensedWhitespace
-    
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+
+        if upComingGame.timeStamp == 0 {
+            timeLabel.text = "LIVE NOW!"
+        } else {
+            timeLabel.text = dateFormatter.string(from: upComingGame.eventDate ?? Date())
+        }
+
         bestOfLabel.text = "Best of \(upComingGame.bestof!)"
+
+        if upComingGame.hasNotification {
+            self.accessoryType = .checkmark
+        } else {
+            self.accessoryType = .disclosureIndicator
+        }
     }
 
 }

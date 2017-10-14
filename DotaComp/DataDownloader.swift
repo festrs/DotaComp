@@ -34,29 +34,27 @@ class DataDownloader: NSObject {
             if error != nil {
                 completion(error)
             } else {
-                self.liveGames = Mapper<Game>().mapArray(JSONArray: resultJSON!)!
+                self.liveGames = Mapper<Game>().mapArray(JSONArray: resultJSON!)
             }
             print("updated live games");
             dispatchGroup.leave()
         }
-        
         dispatchGroup.enter()
         downloadJSON(url: Keys.UpCommingGamesURL) { (resultJSON, error) in
             if error != nil{
                 completion(error)
             }else{
-                self.soonGames = Mapper<EventSoon>().mapArray(JSONArray: resultJSON!)!
+                self.soonGames = Mapper<EventSoon>().mapArray(JSONArray: resultJSON!)
             }
             print("updated up comming games");
             dispatchGroup.leave()
         }
-        
         dispatchGroup.enter()
         downloadJSON(url: Keys.EndedGamesURL) { (resultJSON, error) in
             if error != nil{
                 completion(error)
             }else{
-                self.doneGames = Mapper<EventDone>().mapArray(JSONArray: resultJSON!)!.filter {
+                self.doneGames = Mapper<EventDone>().mapArray(JSONArray: resultJSON!).filter {
                     $0.team1 != nil &&
                         $0.team2 != nil
                 }
@@ -66,6 +64,7 @@ class DataDownloader: NSObject {
         }
 
         dispatchGroup.notify(queue: DispatchQueue.main) {
+            print("finished all");
             completion(nil);
         }
         
