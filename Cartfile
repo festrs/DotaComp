@@ -2,4 +2,5 @@ github "Alamofire/Alamofire" ~> 4.0
 github "onevcat/Kingfisher" ~> 3.0
 github "duemunk/Async" ~> 2.0.1
 github "Hearst-DD/ObjectMapper" ~> 2.2
+github "SVProgressHUD/SVProgressHUD" ~> 2.2.1
 git "https://github.com/festrs/Chameleon.git" "master"

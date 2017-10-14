@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A006BC21F8FB7BB00C45642 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A006BC01F8FB7A500C45642 /* Crashlytics.framework */; };
+		3A006BC31F8FB7BB00C45642 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A006BC11F8FB7A500C45642 /* Fabric.framework */; };
+		3A006BC51F8FBFD100C45642 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A006BC41F8FBFD100C45642 /* SVProgressHUD.framework */; };
 		3A2C3C041DC26A23008EE5A9 /* LiveGamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C3C031DC26A23008EE5A9 /* LiveGamesTableViewCell.swift */; };
 		3A2D2E061E7072F7007C0966 /* EventSoonGamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D2E051E7072F7007C0966 /* EventSoonGamesTableViewCell.swift */; };
 		3A2DE15C1E3F7C3200252288 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2DE15B1E3F7C3200252288 /* GradientView.swift */; };
@@ -31,6 +34,7 @@
 		3AACBC2D1E75921E00FBBE01 /* DoneGamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AACBC2C1E75921E00FBBE01 /* DoneGamesTableViewCell.swift */; };
 		3AB71FB21E77278E00F426D5 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB71FB11E77278E00F426D5 /* Chameleon.framework */; };
 		3ABD1BAC1E3BC5F7009142CA /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1BAB1E3BC5F7009142CA /* Events.swift */; };
+		3AC3162B1F92442200CD51D9 /* AlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3162A1F92442200CD51D9 /* AlertProvider.swift */; };
 		3AE0204D1DBFB6B000E559B8 /* EventSoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE0204C1DBFB6B000E559B8 /* EventSoon.swift */; };
 		3AE0204F1DBFC2A000E559B8 /* EventDone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE0204E1DBFC2A000E559B8 /* EventDone.swift */; };
 		3AE020511DC037DF00E559B8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE020501DC037DF00E559B8 /* GameViewController.swift */; };
@@ -44,6 +48,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A006BC01F8FB7A500C45642 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		3A006BC11F8FB7A500C45642 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		3A006BC41F8FBFD100C45642 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		3A2C3C031DC26A23008EE5A9 /* LiveGamesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveGamesTableViewCell.swift; sourceTree = "<group>"; };
 		3A2D2E051E7072F7007C0966 /* EventSoonGamesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSoonGamesTableViewCell.swift; sourceTree = "<group>"; };
 		3A2DE15B1E3F7C3200252288 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -68,6 +75,7 @@
 		3AACBC2C1E75921E00FBBE01 /* DoneGamesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneGamesTableViewCell.swift; sourceTree = "<group>"; };
 		3AB71FB11E77278E00F426D5 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		3ABD1BAB1E3BC5F7009142CA /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		3AC3162A1F92442200CD51D9 /* AlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProvider.swift; sourceTree = "<group>"; };
 		3AE0204C1DBFB6B000E559B8 /* EventSoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSoon.swift; sourceTree = "<group>"; };
 		3AE0204E1DBFC2A000E559B8 /* EventDone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDone.swift; sourceTree = "<group>"; };
 		3AE020501DC037DF00E559B8 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +95,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A006BC51F8FBFD100C45642 /* SVProgressHUD.framework in Frameworks */,
+				3A006BC21F8FB7BB00C45642 /* Crashlytics.framework in Frameworks */,
+				3A006BC31F8FB7BB00C45642 /* Fabric.framework in Frameworks */,
 				3AB71FB21E77278E00F426D5 /* Chameleon.framework in Frameworks */,
 				3A610F7A1DB94BEE0047F3AC /* Alamofire.framework in Frameworks */,
 				3A610F7B1DB94BEE0047F3AC /* ObjectMapper.framework in Frameworks */,
@@ -184,6 +195,7 @@
 				3A2DE15B1E3F7C3200252288 /* GradientView.swift */,
 				3ABD1BAB1E3BC5F7009142CA /* Events.swift */,
 				3A41F15A1E527710009F99FF /* DataDownloader.swift */,
+				3AC3162A1F92442200CD51D9 /* AlertProvider.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -235,6 +247,9 @@
 		3AEBD7DC1DB93A6000345071 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A006BC41F8FBFD100C45642 /* SVProgressHUD.framework */,
+				3A006BC01F8FB7A500C45642 /* Crashlytics.framework */,
+				3A006BC11F8FB7A500C45642 /* Fabric.framework */,
 				3AB71FB11E77278E00F426D5 /* Chameleon.framework */,
 				3AE020541DC182F700E559B8 /* Kingfisher.framework */,
 				3A610F781DB94BEE0047F3AC /* Alamofire.framework */,
@@ -254,6 +269,7 @@
 				3AEBD7C31DB9353200345071 /* Frameworks */,
 				3AEBD7C41DB9353200345071 /* Resources */,
 				3AEBD7DB1DB9386300345071 /* Carthage */,
+				3A006BBF1F8FB77800C45642 /* Crashlitycs */,
 			);
 			buildRules = (
 			);
@@ -323,6 +339,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3A006BBF1F8FB77800C45642 /* Crashlitycs */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlitycs;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 95a8a58b8f3071e2ea0de5c73d68bed05e4d993e ac7ead19c8a563dd60236d59c00302d0a1663e2bc6c9312494ac6c51b0019a9a";
+		};
 		3AEBD7DB1DB9386300345071 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,6 +363,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -353,6 +384,7 @@
 				3A610F861DB95A560047F3AC /* Game.swift in Sources */,
 				3AE0204F1DBFC2A000E559B8 /* EventDone.swift in Sources */,
 				3AACBC2D1E75921E00FBBE01 /* DoneGamesTableViewCell.swift in Sources */,
+				3AC3162B1F92442200CD51D9 /* AlertProvider.swift in Sources */,
 				3AEBD7CC1DB9353200345071 /* MainViewController.swift in Sources */,
 				3AE020511DC037DF00E559B8 /* GameViewController.swift in Sources */,
 				3AA1C1B31E548FF3006AD293 /* FactionPlayer.swift in Sources */,
@@ -489,13 +521,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Felipe Dias Pereira (4ESLPZ55NB)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Felipe Dias Pereira (4ESLPZ55NB)";
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 439F5NHE7E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = DotaComp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = felipep.com.DotaComp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -512,13 +546,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Felipe Pereira (439F5NHE7E)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Felipe Pereira (439F5NHE7E)";
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 439F5NHE7E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = DotaComp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = felipep.com.DotaComp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

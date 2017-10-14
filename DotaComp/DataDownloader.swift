@@ -31,32 +31,30 @@ class DataDownloader: NSObject {
         
         dispatchGroup.enter()
         downloadJSON(url: Keys.LiveGamesURL) { (resultJSON, error) in
-            if error != nil{
+            if error != nil {
                 completion(error)
-            }else{
-                self.liveGames = Mapper<Game>().mapArray(JSONArray: resultJSON!)!
+            } else {
+                self.liveGames = Mapper<Game>().mapArray(JSONArray: resultJSON!)
             }
             print("updated live games");
             dispatchGroup.leave()
         }
-        
         dispatchGroup.enter()
         downloadJSON(url: Keys.UpCommingGamesURL) { (resultJSON, error) in
             if error != nil{
                 completion(error)
             }else{
-                self.soonGames = Mapper<EventSoon>().mapArray(JSONArray: resultJSON!)!
+                self.soonGames = Mapper<EventSoon>().mapArray(JSONArray: resultJSON!)
             }
             print("updated up comming games");
             dispatchGroup.leave()
         }
-        
         dispatchGroup.enter()
         downloadJSON(url: Keys.EndedGamesURL) { (resultJSON, error) in
             if error != nil{
                 completion(error)
             }else{
-                self.doneGames = Mapper<EventDone>().mapArray(JSONArray: resultJSON!)!.filter {
+                self.doneGames = Mapper<EventDone>().mapArray(JSONArray: resultJSON!).filter {
                     $0.team1 != nil &&
                         $0.team2 != nil
                 }
@@ -66,12 +64,13 @@ class DataDownloader: NSObject {
         }
 
         dispatchGroup.notify(queue: DispatchQueue.main) {
+            print("finished all");
             completion(nil);
         }
         
     }
     
-    func downloadJSON(url: String ,_ completion:@escaping (_ result:[[String: Any]]?,_ error: Error?) ->Void ){
+    func downloadJSON(url: String ,_ completion:@escaping (_ result:[[String: Any]]?,_ error: Error?) ->Void ) {
         Alamofire.request(url).validate().responseJSON { response in
             switch response.result {
             case .success:

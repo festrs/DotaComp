@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import ObjectMapper
 import Chameleon
-
+import SVProgressHUD
 
 extension UIView
 {
@@ -32,6 +32,8 @@ class MainViewController: UIViewController {
     var refreshImageView: UIImageView!
     var dataDownloader = DataDownloader()
     var activityIndicatorView: UIActivityIndicatorView!
+
+    lazy var alertProvider = AlertProvider()
     
     struct Alerts {
         static let DismissAlert = "Dismiss"
@@ -41,7 +43,9 @@ class MainViewController: UIViewController {
     }
     
     struct Keys {
-        static let MainCellHeight = 76
+        static let LiveCellHeight = 80
+        static let EventSoonCellHeight = 100
+        static let DoneCellHeight = 80
         static let MainCellIdentifier = "MainCell"
         static let LiveGamesCellIdentifier = "LiveGamesCell"
         static let EventSoonGamesCellIdentifier = "EventSoonGamesCell"
@@ -93,6 +97,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func refreshGames(_ sender: Any) {
+        SVProgressHUD.show()
         reloadData()
     }
     
@@ -123,6 +128,7 @@ class MainViewController: UIViewController {
     }
     
     func stopRefreshing() {
+        SVProgressHUD.dismiss()
         tableView.reloadData();
         refreshImageView.stopAnimating()
         refreshControl.endRefreshing()
@@ -130,10 +136,69 @@ class MainViewController: UIViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
-    func showAlert(_ title: String, message: String) {
-        let alert = UIAlertController(title: Alerts.DefaultTitle, message: Alerts.DefaultMessage, preferredStyle: .alert)
+    func showAlert(_ title: String? = Alerts.DefaultTitle, message: String? = Alerts.DefaultMessage) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Alerts.DismissAlert, style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+
+    func showEventSoonOptions(eventSoon: EventSoon) {
+        let actionSheet = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
+        actionSheet.view.tintColor = UIColor.flatRed
+
+        guard eventSoon.timeStamp != 0 else {
+            self.showAlert("Good Game", message: "Game is Live, go enjoy yourself!")
+            return
+        }
+
+        actionSheet.addAction(UIAlertAction(title: "Website information", style: .default, handler: { (alert) in
+            if let url = URL(string: eventSoon.linkID!) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        }))
+
+        self.alertProvider.hasLocalNotification(byID: eventSoon.eventID!, completion: { (hasLN) in
+            if (hasLN) {
+                actionSheet.addAction(UIAlertAction(title: "Remove alert", style: .default, handler: { [unowned self] (alert) in
+                    guard self.alertProvider.registerForLocalNotification(on: UIApplication.shared) else {
+                        self.showAlert(nil, message: nil)
+                        return
+                    }
+                    eventSoon.hasNotification = false
+                    self.alertProvider.removeLocalNotificationByIdentifier(withID: eventSoon.eventID!)
+                    self.showAlert("Alerts", message: "Alert has successfully removed!")
+                    self.tableView.reloadData()
+                }))
+            } else {
+                let dictionary = [
+                    Constants.notificationIdentifierKey: eventSoon.eventID ?? "" ,
+                    Constants.notificationDireTeamNameKey: eventSoon.team1 ?? "",
+                    Constants.notificationRadiantTeamNameKey: eventSoon.team2 ?? ""
+                ]
+
+                actionSheet.addAction(UIAlertAction(title: "Add alert when game starts", style: .default, handler: { [unowned self] (alert) in
+                    guard self.alertProvider.registerForLocalNotification(on: UIApplication.shared) else {
+                        self.showAlert("", message: "")
+                        return
+                    }
+                    self.alertProvider.dispatchlocalNotification(with: "Good Game",
+                                                                 body: "\(eventSoon.team1!) vs \(eventSoon.team2!) will start now!",
+                        userInfo: dictionary,
+                        at: eventSoon.eventDate!)
+                    eventSoon.hasNotification = true
+                    self.showAlert("Alerts", message: "Alert successfully created, you will receive an alert when the game starts!")
+                    self.tableView.reloadData()
+                }))
+            }
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            DispatchQueue.main.async {
+                self.present(actionSheet, animated: true, completion:nil)
+            }
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -190,24 +255,20 @@ extension MainViewController: UIScrollViewDelegate {
 }
 
 extension MainViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if gamesSementedControl.selectedSegmentIndex == 0 {
             self.performSegue(withIdentifier: Keys.segueIdentifier, sender: indexPath)
         } else if gamesSementedControl.selectedSegmentIndex == 1 {
             let upComingGame = dataDownloader.soonGames[indexPath.row]
-            if let url = URL(string: upComingGame.linkID!) {
-                UIApplication.shared.open(url, options: [:]) {
-                    boolean in
-    
-                }
-            }
+            showEventSoonOptions(eventSoon: upComingGame)
         } else {
             let doneGame = dataDownloader.doneGames[indexPath.row]
             if let url = URL(string: doneGame.linkID!) {
-                UIApplication.shared.open(url, options: [:]) {
-                    boolean in
-                    
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
                 }
             }
         }
@@ -218,7 +279,16 @@ extension MainViewController: UITableViewDataSource {
     
     @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return CGFloat(Keys.MainCellHeight)
+        switch gamesSementedControl.selectedSegmentIndex {
+        case 0:
+            return CGFloat(Keys.LiveCellHeight)
+        case 1:
+            return CGFloat(Keys.EventSoonCellHeight)
+        case 2:
+            return CGFloat(Keys.DoneCellHeight)
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -9,19 +9,40 @@
 import ObjectMapper
 
 class EventSoon: Mappable {
-    
+
+    var eventID:String?
     var bestof:String?
     var fullDate:String?
     var img1Link:String?
     var img2Link:String?
-    var linkID:String?
+    var linkID:String? {
+        didSet {
+            let alertProvider = AlertProvider()
+            if let lastString = linkID!.components(separatedBy: "matches/").last,
+                let matchID = lastString.components(separatedBy: "-").first {
+                eventID = matchID
+            }
+            alertProvider.hasLocalNotification(byID: eventID ?? "") { (result) in
+                self.hasNotification = result
+            }
+        }
+    }
     var liveIn:String?
     var team1:String?
     var team2:String?
-    var timeStamp:Int?
+    var timeStamp:Double? {
+        didSet {
+            if timeStamp == 0 {
+                eventDate = Date()
+            } else {
+                eventDate = Date(timeIntervalSince1970: timeStamp!)
+            }
+        }
+    }
+    var eventDate: Date?
+    var hasNotification: Bool = false
     
     required init?(map: Map) {
-        
     }
     
     // Mappable
